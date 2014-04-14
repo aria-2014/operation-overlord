@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            max-width: 75em;
+            min-height: 40em;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 2.5%;
+        }
+
+        #map-canvas {
+            height: 90%;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true">
+    </script>
+    <script type="text/javascript">
+        var map;
+        var centerPos = new google.maps.LatLng(53.3536105,-6.2426705);
+        var zoomLevel = 14;
+        function initialize() {
+            var mapOptions = {
+                center: centerPos,
+                zoom: zoomLevel
+            };
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+            //creating an array of branch locations with the name, latitude and longitude of each. We're then iterating through that array to add each location as a marker to the map, with the title to be displayed as a tool tip if the marker is hovered over. //
+            var locations =
+            [
+              ['Branch 1', 53.349094, -6.242231], // NCI
+              ['Branch 2', 53.349582, -6.259622], //O'Connell Street
+              ['Branch 3'],
+              ['Branch 4'],
+              ['Branch 5'],
+              ['Branch 6'],
+              ['Branch 7']
+            ];
+
+            var image = "images/shop-icon.jpg";
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    title: locations[i][0],
+                    map: map,
+                    icon: image
+                });
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+
+
+</head>
+
+    <body>
+        <div class="wrap">
+            <div id="map-canvas"></div>
+        </div>
+    </body>
+
+</html>
+

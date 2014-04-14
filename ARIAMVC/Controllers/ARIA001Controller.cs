@@ -13,29 +13,29 @@ namespace MvcApplication1.Controllers
         // GET: /ARIA001/
 
 
-        static private List<Models.ARIA001> dogs = new List<Models.ARIA001>()
+        static private List<Models.ARIA001> branches = new List<Models.ARIA001>()
 			{
-				new Models.ARIA001 {ID = 1, Name = "Mardy", Age = 13, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Beautiful Irish Setter."},
-				new Models.ARIA001 {ID = 2, Name = "Izzi", Age = 9, Gender = "Female", Handedness = "Left", SpayedNeutered=true, Notes="Karelian Bear Dog, but not trained for field work."},
-				new Models.ARIA001 {ID = 3, Name = "Jewel", Age = 10, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Basenji/Doberman mix with short hair. Why isn't she in Africa where it is warm?"},
-				new Models.ARIA001 {ID = 4, Name = "Copper", Age = 3, Gender = "Male", Handedness = "None", SpayedNeutered=true},
-				new Models.ARIA001 {ID = 5, Name = "Onyx", Age = 4, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Underweight, suffering from a severe bowel disorder."},
-				new Models.ARIA001 {ID = 6, Name = "Raja", Age = 14, Gender = "Female", Handedness = "Right", SpayedNeutered=true, Notes="Older than we first thought, but still loves to run."}
+				new Models.ARIA001 {ID = 1, Name = "BranchIFSC", Age = 13, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Dublin 1"},
+				new Models.ARIA001 {ID = 2, Name = "BranchSwords", Age = 9, Gender = "Female", Handedness = "Left", SpayedNeutered=true, Notes="Co. Dublin"},
+				new Models.ARIA001 {ID = 3, Name = "BranchAthlone", Age = 10, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Co. Westmeath"},
+				new Models.ARIA001 {ID = 4, Name = "BranchTramore", Age = 3, Gender = "Male", Handedness = "None", SpayedNeutered=true, Notes="Co. Waterford"},
+				new Models.ARIA001 {ID = 5, Name = "BranchSandyford", Age = 4, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Dublin 18"},
+				new Models.ARIA001 {ID = 6, Name = "BranchLetterKenny", Age = 14, Gender = "Female", Handedness = "Right", SpayedNeutered=true, Notes="Donegal"}
 			};
 
         //
-        // GET: /Dog/
+        // GET: /branch/
 
         public ActionResult Index()
         {
-            return View(dogs);
+            return View(branches);
 
-            //ViewData.Model = dogs;
+            //ViewData.Model = branches;
             //return View();
         }
 
         //
-        // GET: /Dog/Details/5
+        // GET: /branch/Details/5
 
         public ActionResult Details(Models.ARIA001 d)
         {
@@ -49,7 +49,7 @@ namespace MvcApplication1.Controllers
 			};
 
         //
-        // GET: /Dog/Create
+        // GET: /branch/Create
 
         public ActionResult Create()
         {
@@ -58,7 +58,7 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // POST: /Dog/Create
+        // POST: /branch/Create
 
         [HttpPost]
         public ActionResult Create(Models.ARIA001 d)
@@ -69,37 +69,37 @@ namespace MvcApplication1.Controllers
             {
                 return View("Create", d);
             }
-            dogs.Add(d);
+            branches.Add(d);
 
             return RedirectToAction("Index");
         }
 
         //
-        // GET: /Dog/Edit/5
+        // GET: /branch/Edit/5
 
         public ActionResult Edit(int id)
         {
             ViewData["HandedList"] = new SelectList(handed, "Value", "Text");
 
             Models.ARIA001 d = new Models.ARIA001();
-            foreach (Models.ARIA001 dog in dogs)
+            foreach (Models.ARIA001 branch in branches)
             {
-                if (dog.ID == id)
+                if (branch.ID == id)
                 {
-                    d.Name = dog.Name;
-                    d.Age = dog.Age;
-                    d.ID = dog.ID;
-                    d.Handedness = dog.Handedness;
-                    d.Gender = dog.Gender;
-                    d.SpayedNeutered = dog.SpayedNeutered;
-                    d.Notes = dog.Notes;
+                    d.Name = branch.Name;
+                    d.Age = branch.Age;
+                    d.ID = branch.ID;
+                    d.Handedness = branch.Handedness;
+                    d.Gender = branch.Gender;
+                    d.SpayedNeutered = branch.SpayedNeutered;
+                    d.Notes = branch.Notes;
                 }
             }
             return View(d);
         }
 
         //
-        // POST: /Dog/Edit/5
+        // POST: /branch/Edit/5
 
         [HttpPost]
         public ActionResult Edit(Models.ARIA001 d)
@@ -111,31 +111,31 @@ namespace MvcApplication1.Controllers
                 return View("Edit", d);
             }
 
-            foreach (Models.ARIA001 dog in dogs)
+            foreach (Models.ARIA001 branch in branches)
             {
-                if (dog.ID == d.ID)
+                if (branch.ID == d.ID)
                 {
-                    dog.Name = d.Name;
-                    dog.Age = d.Age;
-                    dog.Handedness = d.Handedness;
-                    dog.Gender = d.Gender;
-                    dog.SpayedNeutered = d.SpayedNeutered;
-                    dog.Notes = d.Notes;
+                    branch.Name = d.Name;
+                    branch.Age = d.Age;
+                    branch.Handedness = d.Handedness;
+                    branch.Gender = d.Gender;
+                    branch.SpayedNeutered = d.SpayedNeutered;
+                    branch.Notes = d.Notes;
                 }
             }
             return RedirectToAction("Index");
         }
 
         //
-        // POST: /Dog/Delete/5
+        // POST: /branch/Delete/5
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            foreach (Models.ARIA001 dog in dogs)
+            foreach (Models.ARIA001 branch in branches)
             {
-                if (dog.ID == id)
+                if (branch.ID == id)
                 {
-                    dogs.Remove(dog);
+                    branches.Remove(branch);
                     break;
                 }
             }
@@ -151,11 +151,11 @@ namespace MvcApplication1.Controllers
 
         public ActionResult GetDog()
         {
-            // Build a Dictionary with dog names and IDs
+            // Build a Dictionary with branch names and IDs
             Dictionary<string, int> dogNames = new Dictionary<string, int>();
-            foreach (Models.ARIA001 dog in dogs)
+            foreach (Models.ARIA001 branch in branches)
             {
-                dogNames.Add(dog.Name, dog.ID);
+                dogNames.Add(branch.Name, branch.ID);
             }
 
             return View(dogNames);
@@ -164,16 +164,16 @@ namespace MvcApplication1.Controllers
         public ActionResult GetDogDetails(int id)
         {
             StringBuilder sb = new StringBuilder();
-            foreach (Models.ARIA001 dog in dogs)
+            foreach (Models.ARIA001 branch in branches)
             {
-                if (dog.ID == id)
+                if (branch.ID == id)
                 {
-                    sb.Append("Name: <b>" + dog.Name + "</b><br/><br/>");
-                    sb.Append("Age: <b>" + dog.Age + "</b><br/><br/>");
-                    sb.Append("Gender: <b>" + dog.Gender + "</b><br/><br/>");
-                    sb.Append("Handedness: <b>" + dog.Handedness + "</b><br/><br/>");
-                    sb.Append("Spayed/Neutered: <b>" + dog.SpayedNeutered + "</b><br/><br/>");
-                    sb.Append("Notes: <b>" + dog.Notes + "</b><br/><br/>");
+                    sb.Append("Name: <b>" + branch.Name + "</b><br/><br/>");
+                    sb.Append("Age: <b>" + branch.Age + "</b><br/><br/>");
+                    sb.Append("Gender: <b>" + branch.Gender + "</b><br/><br/>");
+                    sb.Append("Handedness: <b>" + branch.Handedness + "</b><br/><br/>");
+                    sb.Append("Spayed/Neutered: <b>" + branch.SpayedNeutered + "</b><br/><br/>");
+                    sb.Append("Notes: <b>" + branch.Notes + "</b><br/><br/>");
                 }
             }
             return Content(sb.ToString());
@@ -184,16 +184,16 @@ namespace MvcApplication1.Controllers
         //   StringBuilder sb = new StringBuilder();
         //   if (id.HasValue)
         //   {
-        //      foreach (Models.Dog dog in dogs)
+        //      foreach (Models.branch branch in branches)
         //      {
-        //         if (dog.ID == id)
+        //         if (branch.ID == id)
         //         {
-        //            sb.Append("Name: <b>" + dog.Name + "</b><br/><br/>");
-        //            sb.Append("Age: <b>" + dog.Age + "</b><br/><br/>");
-        //            sb.Append("Gender: <b>" + dog.Gender + "</b><br/><br/>");
-        //            sb.Append("Handedness: <b>" + dog.Handedness + "</b><br/><br/>");
-        //            sb.Append("Spayed/Neutered: <b>" + dog.SpayedNeutered + "</b><br/><br/>");
-        //            sb.Append("Notes: <b>" + dog.Notes + "</b><br/><br/>");
+        //            sb.Append("Name: <b>" + branch.Name + "</b><br/><br/>");
+        //            sb.Append("Age: <b>" + branch.Age + "</b><br/><br/>");
+        //            sb.Append("Gender: <b>" + branch.Gender + "</b><br/><br/>");
+        //            sb.Append("Handedness: <b>" + branch.Handedness + "</b><br/><br/>");
+        //            sb.Append("Spayed/Neutered: <b>" + branch.SpayedNeutered + "</b><br/><br/>");
+        //            sb.Append("Notes: <b>" + branch.Notes + "</b><br/><br/>");
         //         }
         //      }
         //   }
@@ -207,11 +207,11 @@ namespace MvcApplication1.Controllers
 
         public ActionResult GetDogForm()
         {
-            // Build a List<SelectListItem> to hold dog names and IDs
+            // Build a List<SelectListItem> to hold branch names and IDs
             List<SelectListItem> dogNames = new List<SelectListItem>();
-            foreach (Models.ARIA001 dog in dogs)
+            foreach (Models.ARIA001 branch in branches)
             {
-                dogNames.Add(new SelectListItem { Text = dog.Name, Value = dog.ID.ToString() });
+                dogNames.Add(new SelectListItem { Text = branch.Name, Value = branch.ID.ToString() });
             }
             ViewData["DogNames"] = new SelectList(dogNames, "Value", "Text");
 
@@ -225,8 +225,8 @@ namespace MvcApplication1.Controllers
 
         public ActionResult GetDogListJSON()
         {
-            //return Json(dogs);
-            return Json(dogs, JsonRequestBehavior.AllowGet);
+            //return Json(branches);
+            return Json(branches, JsonRequestBehavior.AllowGet);
         }
 
 

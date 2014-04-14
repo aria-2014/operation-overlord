@@ -120,11 +120,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\jquery-ui-1.8.23.css" />
+    <Content Include="Content\main.css" />
     <Content Include="Content\style-mobile.css" />
     <Content Include="Content\style-narrow.css" />
     <Content Include="Content\style-wide.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\vendor\bootstrap-theme.css" />
+    <Content Include="Content\vendor\bootstrap-theme.min.css" />
+    <Content Include="Content\vendor\bootstrap.css" />
+    <Content Include="Content\vendor\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="GoogleMapBanchLocator.html" />
+    <Content Include="images\shop-icon.jpg" />
     <Content Include="Scripts\ARIA001.js" />
     <Content Include="Scripts\ARIA002.js" />
     <Content Include="Scripts\ARIA003.js" />
@@ -152,6 +160,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ARIA001\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\vendor\bootstrap-theme.css.map" />
+    <Content Include="Content\vendor\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

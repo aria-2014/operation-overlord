@@ -60,7 +60,7 @@
 
 		
 		function showDogs(data) {
-            var list = '<p>Dog List:</p><ul>';
+            var list = '<p>branch List:</p><ul>';
             $.each(data, function () {
                 list += '<li>' + this.Name + ', age ' + this.Age + '</li>';
             });
