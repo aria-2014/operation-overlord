@@ -23,6 +23,18 @@ namespace MvcApplication1.Controllers
 				new Models.ARIA001 {ID = 6, Name = "BranchLetterKenny", Age = 14, Gender = "Female", Handedness = "Right", SpayedNeutered=true, Notes="Donegal"}
 			};
 
+        static private List<Models.locations> locations = new List<Models.locations>()
+			{
+				new Models.locations {title = "Current Position",   lat = 0.0,              lng = 0.0},
+                new Models.locations {title = "Shop 1",             lat = 53.890542,        lng = -8.274856},
+                new Models.locations {title = "Shop 2",             lat = 53.923036,        lng = -8.259052},
+                new Models.locations {title = "Shop 3",             lat = 52.028249,        lng = -8.157507},
+                new Models.locations {title = "Shop 4",             lat = 53.8001012865707, lng = -8.28747820854187},
+                new Models.locations {title = "Shop 5",             lat = 53.950198,        lng = -8.259302}
+			};
+
+
+
         //
         // GET: /branch/
 
@@ -227,6 +239,12 @@ namespace MvcApplication1.Controllers
         {
             //return Json(branches);
             return Json(branches, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetLocationsJSON()
+        {
+            //return Json(branches);
+            return Json(locations, JsonRequestBehavior.AllowGet);
         }
 
 

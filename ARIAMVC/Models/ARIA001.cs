@@ -32,4 +32,13 @@ namespace MvcApplication1.Models
 
 
     }
+
+
+    public class locations
+    {
+        public string title { get; set; }
+        public double lat { get; set; }
+        public double lng { get; set; }
+    }
+
 }
