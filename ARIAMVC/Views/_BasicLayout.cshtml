@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <div class="row">
+
+                <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+                    <!-- role is for screen readers-->
+
+                    <div class="navbar-header">
+                        <!-- Menu button (i.e. burger / pancake button)-->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                            <!-- data- is HTML5 calling JS funtions.-->
+                            <span class="sr-only">Toogle naviagtion</span>
+                            <!-- 3 horizontal bars inside button-->
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!--Horitonzal bar along the top that will collapse when the screen gets small-->
+                    <div class="collapse navbar-collapse" id="collapse">
+                        <!--navbar-header adds functionality like buttons to show the menu when the screen size is small-->
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#locations" id="locats">Visitor Location</a></li>
+                            <li><a href="~/GoogleMapBanchLocator.html">Branch Locations</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div> <!--end of row-->
+            </div><!--end of container div-->
+            
+        @RenderBody()
+        </div>
+</body>
+</html>
