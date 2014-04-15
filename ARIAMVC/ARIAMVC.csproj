@@ -142,6 +142,8 @@
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.23.min.js" />
     <Content Include="Scripts\skel.min.js" />
+    <Content Include="Scripts\vendor\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\vendor\respond.min.js" />
     <Content Include="Scripts\_skel_config.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
