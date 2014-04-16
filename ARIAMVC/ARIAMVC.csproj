@@ -133,6 +133,8 @@
     <Content Include="Global.asax" />
     <Content Include="GoogleMapBanchLocator.html" />
     <Content Include="images\shop-icon.jpg" />
+    <Content Include="images\videoThumbnail.png" />
+    <Content Include="products.html" />
     <Content Include="Scripts\ARIA001.js" />
     <Content Include="Scripts\ARIA002.js" />
     <Content Include="Scripts\ARIA003.js" />
@@ -174,9 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_BasicLayout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\ViewPageTest.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
