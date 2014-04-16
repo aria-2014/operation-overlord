@@ -30,7 +30,6 @@ C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\ARIAMVC.dll.c
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\ARIAMVC.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\ARIAMVC.pdb
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\Newtonsoft.Json.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Net.Http.Formatting.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Web.Helpers.dll
@@ -41,7 +40,6 @@ C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Web.Ra
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Web.WebPages.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Web.WebPages.Razor.dll
-C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\Newtonsoft.Json.xml
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Net.Http.Formatting.xml
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Web.Helpers.xml
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\System.Web.Http.xml
@@ -108,3 +106,4 @@ C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAMVC\bin\System.
 C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAMVC\obj\Debug\ARIAMVC.csprojResolveAssemblyReference.cache
 C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAMVC\obj\Debug\ARIAMVC.dll
 C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAMVC\obj\Debug\ARIAMVC.pdb
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAMVC\bin\Microsoft.Web.Infrastructure.xml
