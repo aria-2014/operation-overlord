@@ -113,8 +113,8 @@
     <Content Include="Scripts\vendor\sidebar\modernizr.custom.js" />
     <Content Include="Scripts\vendor\skel.min.js" />
     <Content Include="Scripts\_skel_config.js" />
-    <Content Include="Views\ARIA001\flickrFeed.html" />
-    <Content Include="Views\ARIA001\Index.html" />
+    <Content Include="Views\ARIA001\index.html" />
+    <Content Include="Views\ARIA001\IndexOld.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
