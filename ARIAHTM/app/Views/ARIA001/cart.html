@@ -3,46 +3,59 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>NCIRL</title>
-
-        <!--CSS-->
-        <link href="~/Content/vendor/bootstrap.css" rel="stylesheet" />
+ 
         <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />
-        <!--End of CSS-->
+
+		<script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
+        <script>        !window.jQuery && document.write('<script src="Scripts/jquery-1.8.0.min.js"><\/script>')</script>
+        <script type="text/javascript" src="../../Scripts/jquery-ui-1.8.23.min.js"></script>
+		<script type="text/javascript" src="../../Scripts/_skel_config.js"></script>
+		<script type="text/javascript" src="../../Scripts/skel.min.js"></script>
+
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	
+		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA001.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA002.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA003.js"></script>
+
+        <style>
+            .contextmenu {
+                visibility: hidden;
+                background: #ffffff;
+                border: 1px solid #8888FF;
+                z-index: 10;
+                position: relative;
+                width: 140px;
+            }
+
+                .contextmenu div {
+                    padding-left: 5px;
+                }
+        </style>
+
 		
 	</head>
   	<body>
-<<<<<<< HEAD:ARIAMVC/Views/ARIA001/Index - Copy.html
-          @{
-              Layout = "~/Views/_BasicLayout.cshtml";
-          }
-		<div class="container">
-			<!-- Old Header - See _BasicLayout.cshtml 
-=======
 		<div class="container">
 			<!-- Header -->
->>>>>>> 57296fc85227efc9e3b742340a13752f40b18f3c:ARIAHTM/app/Views/ARIA001/Index.html
 				<div id="header" class="row">
 					<div class="4u">
-						<h1>Super Store</h1>
+						<h1>NCIRL </h1>
 						<nav>
 							<a href="#welcome">Welcome</a>
-							<a href="#locations" id="locats">Locations (shows visitor)</a>
-                            <a href="~/GoogleMapBanchLocator.html">Locations (shows branches)</a>
+							<a href="#locations" id="locats">Locations</a>
                             <a href="#products" id="prods">Products</a>
 							<a href="#contact">Contact</a>
 							<a href="#about">About</a>
 						</nav>
 					</div>
 				</div>
-            -->
-			<!-- Hero -->
+			<!-- Hero -- >
 				<section id="hero">
-
+https://developers.google.com/maps/documentation/javascript/controls?csw=1#CustomControls
 					
 				</section>
-
-
-			<!-- Features -->
+			<! -- Features -->
 				<div class="row">
 				
                     <div class="12u">
@@ -55,7 +68,7 @@
 
                         <section id="locations">
                             <header>
-                                <h2>Locations</h2>
+                                <h2>Locations Cart</h2>
                             </header>
                             <div id="map"></div>
                         </section>
@@ -102,20 +115,6 @@
 				</div>
 				
 		</div>
-
-          <script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
-          <script>        !window.jQuery && document.write('<script src="Scripts/jquery-1.8.0.min.js"><\/script>')</script>
-          <script type="text/javascript" src="../../Scripts/jquery-ui-1.8.23.min.js"></script>
-          <script type="text/javascript" src="../../Scripts/_skel_config.js"></script>
-          <script type="text/javascript" src="../../Scripts/skel.min.js"></script>
-
-          <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-          <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA001.js"></script>
-          <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA002.js"></script>
-          <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA003.js"></script>
 	</body>
-
-
 </html>
 
