@@ -1,3 +1,6 @@
+
+
+/*setting border-box for all the box-sizing: */
 *,
 *:after,
 *::before {
@@ -18,6 +21,7 @@
 
 /* Icomoon.com */
 
+/*Top Nav Bar: */
 .gn-menu-main,
 .gn-menu-main ul {
 		margin: 0;
