@@ -59,7 +59,6 @@
             //extent bounds for each stop and adjust map to fit to it
             bounds.extend(markerLatLng);
             flickrmap.fitBounds(bounds);
-           
             //set marker to be the flickr image, resizing it to 32 by 32 pixels
             var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
            
@@ -128,6 +127,9 @@
 					updateMarkerAddress('Cannot determine address at this location.');
 				}
 			});
+            //Adding call for forcast here as position updated
+			alert(pos.lat() + "" + pos.lng());
+            //Finish calls for forecast
 		}
 
 		function updateMarkerStatus(str) {
@@ -274,7 +276,7 @@
 					contInit,
 					dispError,
 					{ enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
-				);
+				); 
 		    }
 		    else {
 		        alert("Geolocation is not supported by this browser");
