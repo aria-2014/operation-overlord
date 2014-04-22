@@ -12,12 +12,6 @@ C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22Ap
 C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.dll
 C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.pdb
 =======
-C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\bin\ARIAHTM22April.dll.config
-C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\bin\ARIAHTM22April.dll
-C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\bin\ARIAHTM22April.pdb
-C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\obj\Debug\ARIAHTM22April.dll
-C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\obj\Debug\ARIAHTM22April.pdb
-C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\obj\Debug\ARIAHTM22April.csprojResolveAssemblyReference.cache
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.dll.config
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.pdb
