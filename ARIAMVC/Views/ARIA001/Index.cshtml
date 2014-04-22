@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	
+		<title>NCIRL</title>
+
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<link href="../../Content/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="../../Content/styles_bs.css" rel="stylesheet" type="text/css" />
+
+		
+        <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../../Scripts/vendor/boostrap/bootstrap.min.js"></script>
+
+ 
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+   
+		<!-- jQuery -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.5.3-crypto-min.js"></script>   
+
+		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA001.js"></script>		
+		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA004.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA005.js"></script>
+
+
+	</head>
+  	<body>
+	
+		<div class = "navbar navbar-inverse navbar-static-top">
+			<div class = "container">
+				<a href = "#" class = "navbar-brand">ARIA2014</a>
+				<button class = "navbar-toggle" data-toggle = "collapse" data-target= ".navHeaderCollapse">
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+					<span class = "icon-bar"></span>
+				</button>
+				<nav>
+				<div class = "collapse navbar-collapse navHeaderCollapse">
+					<ul class = "nav navbar-nav navbar-right">
+						<li class= "active"><a href = "#home">Home</a></li>
+						<li class = "dropdown">
+							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media<b class = "caret"></b></a>
+								<ul class = "dropdown-menu">
+									<li><a href = "#twitter">Twitter</a></li>
+									<li><a href = "#azuremkt">Azure Market Place</a></li>
+									<li><a href = "#flickr" id = "flickrstart">Flickr</a></li>
+
+								</ul>
+						</li>
+						<li><a href = "#contact" data-toggle="modal">Contact</a></li>
+						<li><a href = "#about">About</a></li>
+					
+					</ul>
+				</div>
+				</nav>
+			</div>
+		</div>
+		
+		
+		
+        <section id="home">	
+		<div class = "container">
+			<div class = "jumbotron">
+				<center>
+					<h1>hello world</h1>
+					<p> xxx </p>
+					<a class = "btn btn-default">Watch Now</a>
+					<a class = "btn btn-info">Tweet it!</a>
+				</center>
+			</div>
+		</div>
+			
+		<div class = "container">
+		
+			<div class = "row">
+			
+				<div class = "col-md-3">
+					<p>adsf adf afdfad adfadf asdfadfs adadf adadf adsasdf </p>
+				</div>
+				<div class = "col-md-3">
+					<p>adsf adf afdfad adfadf asdfadfs adadf adadf adsasdf </p>
+				</div>
+				<div class = "col-md-3">
+					<p>adsf adf afdfad adfadf asdfadfs adadf adadf adsasdf </p>
+				</div>
+				
+				<div class = "col-md-3">
+					<p>adsf adf afdfad adfadf asdfadfs adadf adadf adsasdf </p>
+				</div>
+
+			</div>
+
+		</div>
+		</section>
+
+		
+		
+		<section id="about">
+		<div class = "container">
+
+            <header>
+                 <h2>About</h2>
+            </header>
+			<p>The about section</p>
+			
+		</div>
+        </section>
+
+		
+		
+		<section id="twitter">
+		<div class = "container">
+
+            <header>
+                 <h2>Twitter</h2>
+            </header>
+			<p>The twitter section</p>
+			
+		</div>
+        </section>
+	
+
+	
+		<section id="azuremkt">
+		<div class = "container">
+
+			<div class = "container">
+				<div class = "row">
+		
+					<div class = "col-md-3">		
+						<h1>Azure Market Place Search</h1>
+						<form id="my_form">
+							<label for="service_op">Service Operation</label><br />
+							<input name="service_op" type="radio" value="Web" CHECKED /> Web 
+							<input name="service_op" type="radio" value="Image" /> Image<br /><br />
+							<label for="query">Query</label><br />
+							<input id="query" name="query" type="text" size="30" /><br /><br /> 
+							<input id="bt_search" name="bt_search" type="button" value="Search" /><br />
+						</form>
+					</div>
+					
+					<div class = "col-md-9">
+						<!-- Results will be placed into the following container. --> 
+						<div id="results"></div>
+					</div>
+					
+				</div>				
+			</div>
+		</div>		
+
+        </section>
+
+		
+		<section id="flickr">
+		
+			<div class = "container">
+				<div class = "row">
+		
+					<div class = "col-md-4">
+						<h1>Flickr Search</h1>
+						<!-- <input id="flickrstart" type="button" value="Start" /> <br /><br /> -->
+					</div>
+						
+					<div class = "col-md-4">	
+						Query <input id="flickrquery" type="text" size="20" /><br /><br /> 
+						<input id="flickrsearch" type="button" value="Search" /> <br /><br /> 
+						<input type="checkbox" id="toggleFlickr" checked> flickr layer
+					</div>
+						
+					<div class = "col-md-4">	
+						<b>Marker status:</b>
+						<div id="markerStatus"><i>Click and drag the marker.</i></div>
+						<b>Current position:</b>
+						<div id="info"></div>
+						<b>Closest matching address:</b>
+						<div id="address"></div>
+					</div>
+					<!-- map div container
+					<div class = "col-md-9" id="map_canvas" style="width: 100%; height: 100%">
+					</div>
+					-->
+				</div>
+			</div>
+			<!-- This does not work when placed above for some reason -->
+			<div id="map_canvas" style="width: 100%; height: 100%">
+			</div>
+        </section>
+		
+
+		
+		<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class= "navbar-text pull-left">Site Built By ARIA2014 Team</p>
+				<a href = "#" class = "navbar-btn btn-danger btn pull-right">Subscribe Button</a>
+			</div>
+		</div>
+	
+		<div class = "modal fade" id= "contact" role = "dialog">
+			<div class = "modal-dialog">
+				<div class = "modal-content">
+					<form class = "form-horizontal">
+						<div class = "modal-header">
+							<p>Contact ARIA 2014 Team</p>
+						</div>
+						<div class = "modal-body">
+						
+							<div class = "form-group">
+								<label for = "contact-name" class = "col-lg-2 control-label">Name:</label>
+								<div class = "col-lg-10">
+									<input type = "text" class = "form-control" id = "contact-name" placeholder = "Full Name">
+								</div>
+							</div>
+							<div class = "form-group">
+								<label for = "contact-email" class = "col-lg-2 control-label">Email:</label>
+								<div class = "col-lg-10">
+									<input type = "email" class = "form-control" id = "contact-email" placeholder = "you@example.com">							
+								</div>
+							</div>
+							<div class = "form-group">
+								<label for = "contact-msg" class = "col-lg-2 control-label">Message:</label>
+								<div class = "col-lg-10">
+									<textarea class = "form-control" rows = 8></textarea>						
+								</div>
+							</div>
+						
+						</div>
+						<div class = "modal-footer">
+							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
+							<button class = "btn btn-primary" type = "submit">Send</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		
+	</body>
+</html>
+
