@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 	
@@ -9,6 +9,7 @@
 		
 		<link href="../../Content/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<link href="../../Content/styles_bs.css" rel="stylesheet" type="text/css" />
+
 		
         <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />
 
@@ -20,27 +21,13 @@
    
 		<!-- jQuery -->
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.5.3-crypto-min.js"></script>   
 
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA001.js"></script>		
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA004.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA005.js"></script>
 
-		<style type="text/css">
-		html, body, section, container, .row, .col-md-9 { height: 100% }
-        html { height: 100% }
-        body { height: 100%; margin: 0px; padding: 0px }
-        #map_canvas { display: block; height: 350px, width:350px }
-		#map_canvas img { 
-			max-width: none;
-		}
-
-		#map_canvas label { 
-			width: auto; display:inline; 
-		} 
-		#map_canvas img {
-			max-width: none !important;
-			box-shadow: none !important;
-		}
-		</style>
 
 	</head>
   	<body>
@@ -61,7 +48,7 @@
 							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media<b class = "caret"></b></a>
 								<ul class = "dropdown-menu">
 									<li><a href = "#twitter">Twitter</a></li>
-									<li><a href = "#facebook">Facebook</a></li>
+									<li><a href = "#azuremkt">Azure Market Place</a></li>
 									<li><a href = "#flickr" id = "flickrstart">Flickr</a></li>
 
 								</ul>
@@ -140,28 +127,53 @@
 	
 
 	
-		<section id="facebook">
+		<section id="azuremkt">
 		<div class = "container">
+
+			<div class = "container">
+				<div class = "row">
 		
-            <header>
-                 <h2>Facebook</h2>
-            </header>
-			<p>The facebook section</p>
-			
-		</div>
+					<div class = "col-md-3">		
+						<h1>Azure Market Place Search</h1>
+						<form id="my_form">
+							<label for="service_op">Service Operation</label><br />
+							<input name="service_op" type="radio" value="Web" CHECKED /> Web 
+							<input name="service_op" type="radio" value="Image" /> Image<br /><br />
+							<label for="query">Query</label><br />
+							<input id="query" name="query" type="text" size="30" /><br /><br /> 
+							<input id="bt_search" name="bt_search" type="button" value="Search" /><br />
+						</form>
+					</div>
+					
+					<div class = "col-md-9">
+						<!-- Results will be placed into the following container. --> 
+						<div id="results"></div>
+					</div>
+					
+				</div>				
+			</div>
+		</div>		
+
         </section>
 
+		
 		<section id="flickr">
 		
 			<div class = "container">
 				<div class = "row">
 		
-					<div class = "col-md-3">
-						<h1>Flickr API</h1>
+					<div class = "col-md-4">
+						<h1>Flickr Search</h1>
 						<!-- <input id="flickrstart" type="button" value="Start" /> <br /><br /> -->
+					</div>
+						
+					<div class = "col-md-4">	
 						Query <input id="flickrquery" type="text" size="20" /><br /><br /> 
 						<input id="flickrsearch" type="button" value="Search" /> <br /><br /> 
 						<input type="checkbox" id="toggleFlickr" checked> flickr layer
+					</div>
+						
+					<div class = "col-md-4">	
 						<b>Marker status:</b>
 						<div id="markerStatus"><i>Click and drag the marker.</i></div>
 						<b>Current position:</b>
@@ -230,3 +242,4 @@
 		
 	</body>
 </html>
+

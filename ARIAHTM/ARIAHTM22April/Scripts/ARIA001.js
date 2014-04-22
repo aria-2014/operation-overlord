@@ -20,7 +20,7 @@
 
 		$(function(){
 	  
-		  $("#twitter, #facebook, #flickr, #about").hide().addClass("hidden"); 
+		  $("#twitter, #azuremkt, #flickr, #about").hide().addClass("hidden"); 
 		  $("#home").addClass("visible");
 		  
 		  $("nav").click(function(event){ 
