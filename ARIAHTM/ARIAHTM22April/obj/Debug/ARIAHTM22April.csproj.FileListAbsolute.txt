@@ -4,3 +4,9 @@ C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April
 C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\obj\Debug\ARIAHTM22April.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\obj\Debug\ARIAHTM22April.pdb
 C:\Users\Brian\SkyDrive\GitHubRepos\ARIAHTM22April\ARIAHTM22April\ARIAHTM22April\obj\Debug\ARIAHTM22April.csprojResolveAssemblyReference.cache
+C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.dll.config
+C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.dll
+C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.pdb
+C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.csprojResolveAssemblyReference.cache
+C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.dll
+C:\MScWebTech2\AdvancedRichInterApps\APPS\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.pdb

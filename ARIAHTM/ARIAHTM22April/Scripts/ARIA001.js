@@ -20,12 +20,12 @@
 
 		$(function(){
 	  
-		  $("#locations, #products, #contact, #about").hide().addClass("hidden"); 
-		  $("#welcome").addClass("visible");
+		  $("#twitter, #facebook, #flickr, #about").hide().addClass("hidden"); 
+		  $("#home").addClass("visible");
 		  
 		  $("nav").click(function(event){ 
 			target = $(event.target);
-			if(target.is("nav a")){   
+			if(target.is(("nav li a") || ("nav li ul li a"))){   
 			  event.preventDefault();
 			  if ( $(target.attr("href")).hasClass("hidden") ){  
 			  
