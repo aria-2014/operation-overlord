@@ -28,6 +28,7 @@
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA001.js"></script>		
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA004.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA005.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA006.js"></script>
 
 
 	</head>
@@ -51,12 +52,17 @@
 									<li><a href = "#twitter">Twitter</a></li>
 									<li><a href = "#azuremkt">Azure Market Place</a></li>
 									<li><a href = "#flickr" id = "flickrstart">Flickr</a></li>
-
 								</ul>
 						</li>
+						<li class = "dropdown">
+							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Utilities<b class = "caret"></b></a>
+								<ul class = "dropdown-menu">
+									<li><a href = "#localnotes">Local Notes</a></li>
+									<li><a href = "#animation">Animation</a></li>
+								</ul>
+						</li>						
 						<li><a href = "#contact" data-toggle="modal">Contact</a></li>
-						<li><a href = "#about">About</a></li>
-					
+						<li><a href = "#about">About</a></li>					
 					</ul>
 				</div>
 				</nav>
@@ -159,21 +165,7 @@
 		</div>
 		</section>
 
-		
-		
-		<section id="about">
-		<div class = "container">
-
-            <header>
-                 <h2>About</h2>
-            </header>
-			<p>The about section</p>
-			
-		</div>
-        </section>
-
-		
-		
+				
 		<section id="twitter">
 		<div class = "container">
 
@@ -263,7 +255,65 @@
 			</div>
         </section>
 		
+		
+		<section id="localnotes">
+		<div class = "container">
+			<div class = "col-md-4">
+				<ul class="list-group" id="notes">
+				</ul>	
+			</div>						
+			<div class = "col-md-8">
+				<form class = "form-horizontal">
+					<div class = "form-group">
+						<div class = "col-lg-10">
+							<input type="button" id="new_button" value="New note">
+							<input type="submit" id="save_button" value="Save">
+							<input type="submit" id="delete_button" value="Delete">		
+						</div>
+					</div>
+					<div class = "form-group">
+						<label for = "title" class = "col-lg-2 control-label">Title:</label>
+						<div class = "col-lg-10">
+							<input type = "text" class = "form-control" id = "title" placeholder = "title">					
+						</div>
+					</div>
+					<div class = "form-group">
+						<label for = "note" class = "col-lg-2 control-label">Note:</label>
+						<div class = "col-lg-10">
+							<textarea class = "form-control" rows = 8 id="note" placeholder = "title"></textarea>	
+						</div>
+					</div>
+				</form>
+			</div>		
+		</div>
+        </section>
 
+		
+		<section id="animation">
+		<div class = "container">
+
+            <header>
+                 <h2>Animation</h2>
+            </header>
+			<p>The about section</p>
+			
+		</div>
+        </section>
+
+		
+				
+		<section id="about">
+		<div class = "container">
+
+            <header>
+                 <h2>About</h2>
+            </header>
+			<p>The about section</p>
+			
+		</div>
+        </section>
+
+		
 		
 		<div class = "navbar navbar-default navbar-fixed-bottom">
 			<div class = "container">
