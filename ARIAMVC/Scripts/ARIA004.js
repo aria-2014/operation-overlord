@@ -7,6 +7,13 @@
 		var curLat;
 		var curLng;
         var flickr = [];
+		
+		var autoInfoWin;
+		var autoInput;
+		var autoTypes;
+		var autoComplete;
+		var autoPlace
+
 
         //defines bounding box of all locations
         var bounds;
@@ -80,7 +87,7 @@
                 {trace(data);
                     $.each(data.photos.photo, function(i,item){
                         infowindowcontent = '<strong>'+item.title+'</strong><br>';
-                        infowindowcontent += '<a href="'+item.url_m+'" target="_blank">';
+                        infowindowcontent += '<a href="'+item.url_m+'" target="_top">';
                         infowindowcontent += '<img src="'+item.url_t+'"></a>';
                         createFlickrMarker(i,item.latitude,item.longitude,infowindowcontent,item.url_sq); 
                     });    
@@ -164,9 +171,79 @@
 			// Update current position info.
 			updateMarkerPosition(curLatLng);
 			geocodePosition(curLatLng);
+			
+			// Auto complete code start
+			autoInfoWin = new google.maps.InfoWindow();
+			autoInput = (document.getElementById('pac-input'));
+			autoTypes = document.getElementById('type-selector');
+			flickrmap.controls[google.maps.ControlPosition.TOP_LEFT].push(autoInput);
+			flickrmap.controls[google.maps.ControlPosition.TOP_LEFT].push(autoTypes);
+			autoComplete = new google.maps.places.Autocomplete(autoInput);
+			autoComplete.bindTo('bounds', flickrmap);
+			
+			google.maps.event.addListener(autoComplete, 'place_changed', 
+				function() {
+					autoInfoWin.close();
+					flickrmarker.setVisible(false);
+					autoPlace = autoComplete.getPlace();
+					if (!autoPlace.geometry) {
+						return;
+					}
 
+					// If the place has a geometry, then present it on a map.
+					if (autoPlace.geometry.viewport) {
+						flickrmap.fitBounds(autoPlace.geometry.viewport);
+					} else {
+						flickrmap.setCenter(autoPlace.geometry.location);
+						flickrmap.setZoom(8);  // Why 17? Because it looks good.
+					}
+					/*
+					marker.setIcon(({
+						url: autoPlace.icon,
+						size: new google.maps.Size(71, 71),
+						origin: new google.maps.Point(0, 0),
+						anchor: new google.maps.Point(17, 34),
+						scaledSize: new google.maps.Size(35, 35)
+					}));
+					*/
+					var myPos = autoPlace.geometry.location;
+					flickrmarker.setPosition(myPos);
+					updateMarkerPosition(myPos);
+					geocodePosition(myPos);
+					flickrmarker.setVisible(true);
+
+					var address = '';
+					if (autoPlace.address_components) {
+						address = [
+							(autoPlace.address_components[0] && autoPlace.address_components[0].short_name || ''),
+							(autoPlace.address_components[1] && autoPlace.address_components[1].short_name || ''),
+							(autoPlace.address_components[2] && autoPlace.address_components[2].short_name || '')
+							].join(' ');
+					}
+
+					autoInfoWin.setContent('<div><strong>' + autoPlace.name + '</strong><br>' + address);
+					autoInfoWin.open(flickrmap, flickrmarker);
+			});
+			
+			// Sets a listener on a radio button to change the filter type on Places
+			// Autocomplete.
+			function setupClickListener(id, types) {
+				var radioButton = document.getElementById(id);
+				google.maps.event.addDomListener(radioButton, 'click', function() {
+				autoComplete.setTypes(types);
+				});
+			}
+
+			setupClickListener('changetype-all', []);
+			setupClickListener('changetype-establishment', ['establishment']);
+			setupClickListener('changetype-geocode', ['geocode']);
+
+			// Auto complete code end 
+
+			
 			// Add dragging event listeners.
 			google.maps.event.addListener(flickrmarker, 'dragstart', function() {
+				autoInfoWin.close();
 				updateMarkerAddress('Dragging...');
 			});
 
