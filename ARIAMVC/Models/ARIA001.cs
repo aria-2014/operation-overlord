@@ -6,39 +6,42 @@ using System.Web;
 
 namespace MvcApplication1.Models
 {
-    public class ARIA001
+    public class Branches
     {
-        [Required(ErrorMessage = "ID is required")]
         public int ID { get; set; }
-
-        [Required(ErrorMessage = "Name is required"),
-        StringLength(15, ErrorMessage = "Name cannot be more than 15 characters")]
         public string Name { get; set; }
-
-        [Required(ErrorMessage = "Gender is required"),
-        StringLength(6, MinimumLength = 1)]
-        public string Gender { get; set; }
-
-        [Required(ErrorMessage = "Age is required"),
-        Range(0, 20, ErrorMessage = "Must be between 0 and 20")]
-        public int Age { get; set; }
-
-        public bool SpayedNeutered { get; set; }
-
-        [Required(ErrorMessage = "Please select a handedness option")]
-        public string Handedness { get; set; }
-
         public string Notes { get; set; }
-
-
     }
 
-
-    public class locations
+    public class Locations
     {
         public string title { get; set; }
         public double lat { get; set; }
         public double lng { get; set; }
+    }
+
+    public class PlacesToGo
+    {
+        public int ID { get; set; }
+        public string Desc { get; set; }
+    }
+
+    public class ThingsToDo
+    {
+        public int ID { get; set; }
+        public string Desc { get; set; }
+    }
+
+    public class WhereToStay
+    {
+        public int ID { get; set; }
+        public string Desc { get; set; }
+    }
+
+    public class WhatsOn
+    {
+        public int ID { get; set; }
+        public string Desc { get; set; }
     }
 
 }

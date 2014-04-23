@@ -78,6 +78,45 @@
 
 		carouselNormalization() 
 		
-		// carousel end
+        // carousel end
+
+        // text content start
+
+		function showPlacesToGo(data) {
+		    var list = "";
+		    $.each(data, function () {
+		        list += this.Desc;
+		    });
+		    $('#divPlacesToGo').replaceWith(list);
+		}
+		function showThingsToDo(data) {
+		    var list = "";
+		    $.each(data, function () {
+		        list += this.Desc;
+		    });
+		    $('#divThingsToDo').replaceWith(list);
+		}
+		function showWhereToStay(data) {
+		    var list = "";
+		    $.each(data, function () {
+		        list += this.Desc;
+		    });
+		    $('#divWhereToStay').replaceWith(list);
+		}
+		function showWhatsOn(data) {
+		    var list = "";
+		    $.each(data, function () {
+		        list += this.Desc;
+		    });
+		    $('#divWhatsOn').replaceWith(list);
+		}
+
+
+		$.getJSON('/ARIA001/GetPlacesToGoJSON', null, function (data) { showPlacesToGo(data); });
+		$.getJSON('/ARIA001/GetThingsToDoJSON', null, function (data) { showThingsToDo(data); });
+		$.getJSON('/ARIA001/GetWhereToStayJSON', null, function (data) { showWhereToStay(data); });
+		$.getJSON('/ARIA001/GetWhatsOnJSON', null, function (data) { showWhatsOn(data); });
+
+        // text content end
 
 });

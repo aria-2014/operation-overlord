@@ -9,244 +9,94 @@ namespace MvcApplication1.Controllers
 {
     public class ARIA001Controller : Controller
     {
-        //
-        // GET: /ARIA001/
 
 
-        static private List<Models.ARIA001> branches = new List<Models.ARIA001>()
+        static private List<Models.Branches> branches = new List<Models.Branches>()
 			{
-				new Models.ARIA001 {ID = 1, Name = "BranchIFSC", Age = 13, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Dublin 1"},
-				new Models.ARIA001 {ID = 2, Name = "BranchSwords", Age = 9, Gender = "Female", Handedness = "Left", SpayedNeutered=true, Notes="Co. Dublin"},
-				new Models.ARIA001 {ID = 3, Name = "BranchAthlone", Age = 10, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Co. Westmeath"},
-				new Models.ARIA001 {ID = 4, Name = "BranchTramore", Age = 3, Gender = "Male", Handedness = "None", SpayedNeutered=true, Notes="Co. Waterford"},
-				new Models.ARIA001 {ID = 5, Name = "BranchSandyford", Age = 4, Gender = "Female", Handedness = "None", SpayedNeutered=true, Notes="Dublin 18"},
-				new Models.ARIA001 {ID = 6, Name = "BranchLetterKenny", Age = 14, Gender = "Female", Handedness = "Right", SpayedNeutered=true, Notes="Donegal"}
+				new Models.Branches {ID = 1, Name = "BranchIFSC", Notes="Dublin 1"},
+				new Models.Branches {ID = 2, Name = "BranchSwords", Notes="Co. Dublin"},
+				new Models.Branches {ID = 3, Name = "BranchAthlone", Notes="Co. Westmeath"},
+				new Models.Branches {ID = 4, Name = "BranchTramore",  Notes="Co. Waterford"},
+				new Models.Branches {ID = 5, Name = "BranchSandyford",  Notes="Dublin 18"},
+				new Models.Branches {ID = 6, Name = "BranchLetterKenny",  Notes="Donegal"}
 			};
 
-        static private List<Models.locations> locations = new List<Models.locations>()
+        static private List<Models.Locations> locations = new List<Models.Locations>()
 			{
-				new Models.locations {title = "Current Position",   lat = 0.0,              lng = 0.0},
-                new Models.locations {title = "Shop 1",             lat = 53.890542,        lng = -8.274856},
-                new Models.locations {title = "Shop 2",             lat = 53.923036,        lng = -8.259052},
-                new Models.locations {title = "Shop 3",             lat = 52.028249,        lng = -8.157507},
-                new Models.locations {title = "Shop 4",             lat = 53.8001012865707, lng = -8.28747820854187},
-                new Models.locations {title = "Shop 5",             lat = 53.950198,        lng = -8.259302}
+				new Models.Locations {title = "Current Position",   lat = 0.0,              lng = 0.0},
+                new Models.Locations {title = "Shop 1",             lat = 53.890542,        lng = -8.274856},
+                new Models.Locations {title = "Shop 2",             lat = 53.923036,        lng = -8.259052},
+                new Models.Locations {title = "Shop 3",             lat = 52.028249,        lng = -8.157507},
+                new Models.Locations {title = "Shop 4",             lat = 53.8001012865707, lng = -8.28747820854187},
+                new Models.Locations {title = "Shop 5",             lat = 53.950198,        lng = -8.259302}
+			};
+
+        static private List<Models.PlacesToGo> placesToGo = new List<Models.PlacesToGo>()
+			{
+				new Models.PlacesToGo {ID = 1, Desc = "<p>Dublin</p>"},
+				new Models.PlacesToGo {ID = 2, Desc = "<p>Galway</p>"},
+                new Models.PlacesToGo {ID = 3, Desc = "<p>Cork</p>"},
+			};
+        static private List<Models.ThingsToDo> thingsToDo = new List<Models.ThingsToDo>()
+			{
+				new Models.ThingsToDo {ID = 1, Desc = "<p>Theatre</p>"},
+				new Models.ThingsToDo {ID = 2, Desc = "<p>Cinema</p>"},
+                new Models.ThingsToDo {ID = 3, Desc = "<p>Pub</p>"},
+			};
+
+        static private List<Models.WhereToStay> whereToStay = new List<Models.WhereToStay>()
+			{
+				new Models.WhereToStay {ID = 1, Desc = "<p>Hotel</p>"},
+				new Models.WhereToStay {ID = 2, Desc = "<p>B&B</p>"},
+                new Models.WhereToStay {ID = 3, Desc = "<p>Guest House</p>"},
+			};
+
+        static private List<Models.WhatsOn> whatsOn = new List<Models.WhatsOn>()
+			{
+				new Models.WhatsOn {ID = 1, Desc = "<p>Football Match</p>"},
+				new Models.WhatsOn {ID = 2, Desc = "<p>Music Festival</p>"},
+                new Models.WhatsOn {ID = 3, Desc = "<p>Horse Racing</p>"},
 			};
 
 
-
-        //
-        // GET: /branch/
 
         public ActionResult Index()
         {
-            return View(branches);
+            //return View(branches);
 
             //ViewData.Model = branches;
-            //return View();
-        }
-
-        //
-        // GET: /branch/Details/5
-
-        public ActionResult Details(Models.ARIA001 d)
-        {
-            return View(d);
-        }
-
-        private List<SelectListItem> handed = new List<SelectListItem> {
-						new SelectListItem { Text = "Left", Value = "Left" },
-						new SelectListItem { Text = "Right", Value = "Right" },
-						new SelectListItem { Text = "None", Value = "None" }
-			};
-
-        //
-        // GET: /branch/Create
-
-        public ActionResult Create()
-        {
-            ViewData["HandedList"] = new SelectList(handed, "Value", "Text");
             return View();
         }
 
-        //
-        // POST: /branch/Create
-
-        [HttpPost]
-        public ActionResult Create(Models.ARIA001 d)
+        public ActionResult GetBranchesJSON()
         {
-            ViewData["HandedList"] = new SelectList(handed, "Value", "Text");
-
-            if (!ModelState.IsValid)
-            {
-                return View("Create", d);
-            }
-            branches.Add(d);
-
-            return RedirectToAction("Index");
-        }
-
-        //
-        // GET: /branch/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            ViewData["HandedList"] = new SelectList(handed, "Value", "Text");
-
-            Models.ARIA001 d = new Models.ARIA001();
-            foreach (Models.ARIA001 branch in branches)
-            {
-                if (branch.ID == id)
-                {
-                    d.Name = branch.Name;
-                    d.Age = branch.Age;
-                    d.ID = branch.ID;
-                    d.Handedness = branch.Handedness;
-                    d.Gender = branch.Gender;
-                    d.SpayedNeutered = branch.SpayedNeutered;
-                    d.Notes = branch.Notes;
-                }
-            }
-            return View(d);
-        }
-
-        //
-        // POST: /branch/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(Models.ARIA001 d)
-        {
-            ViewData["HandedList"] = new SelectList(handed, "Value", "Text");
-
-            if (!ModelState.IsValid)
-            {
-                return View("Edit", d);
-            }
-
-            foreach (Models.ARIA001 branch in branches)
-            {
-                if (branch.ID == d.ID)
-                {
-                    branch.Name = d.Name;
-                    branch.Age = d.Age;
-                    branch.Handedness = d.Handedness;
-                    branch.Gender = d.Gender;
-                    branch.SpayedNeutered = d.SpayedNeutered;
-                    branch.Notes = d.Notes;
-                }
-            }
-            return RedirectToAction("Index");
-        }
-
-        //
-        // POST: /branch/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id)
-        {
-            foreach (Models.ARIA001 branch in branches)
-            {
-                if (branch.ID == id)
-                {
-                    branches.Remove(branch);
-                    break;
-                }
-            }
-            return RedirectToAction("Index");
-        }
-
-        [ChildActionOnly]
-        public string AppDev()
-        {
-            // Used for Html.Action (more typically use a partial view)
-            return "<a href='http://www.appdev.com'>Go to AppDev</a>";
-        }
-
-        public ActionResult GetDog()
-        {
-            // Build a Dictionary with branch names and IDs
-            Dictionary<string, int> dogNames = new Dictionary<string, int>();
-            foreach (Models.ARIA001 branch in branches)
-            {
-                dogNames.Add(branch.Name, branch.ID);
-            }
-
-            return View(dogNames);
-        }
-
-        public ActionResult GetDogDetails(int id)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (Models.ARIA001 branch in branches)
-            {
-                if (branch.ID == id)
-                {
-                    sb.Append("Name: <b>" + branch.Name + "</b><br/><br/>");
-                    sb.Append("Age: <b>" + branch.Age + "</b><br/><br/>");
-                    sb.Append("Gender: <b>" + branch.Gender + "</b><br/><br/>");
-                    sb.Append("Handedness: <b>" + branch.Handedness + "</b><br/><br/>");
-                    sb.Append("Spayed/Neutered: <b>" + branch.SpayedNeutered + "</b><br/><br/>");
-                    sb.Append("Notes: <b>" + branch.Notes + "</b><br/><br/>");
-                }
-            }
-            return Content(sb.ToString());
-        }
-
-        //public ActionResult GetDogDetails(int? id)
-        //{
-        //   StringBuilder sb = new StringBuilder();
-        //   if (id.HasValue)
-        //   {
-        //      foreach (Models.branch branch in branches)
-        //      {
-        //         if (branch.ID == id)
-        //         {
-        //            sb.Append("Name: <b>" + branch.Name + "</b><br/><br/>");
-        //            sb.Append("Age: <b>" + branch.Age + "</b><br/><br/>");
-        //            sb.Append("Gender: <b>" + branch.Gender + "</b><br/><br/>");
-        //            sb.Append("Handedness: <b>" + branch.Handedness + "</b><br/><br/>");
-        //            sb.Append("Spayed/Neutered: <b>" + branch.SpayedNeutered + "</b><br/><br/>");
-        //            sb.Append("Notes: <b>" + branch.Notes + "</b><br/><br/>");
-        //         }
-        //      }
-        //   }
-        //   else
-        //   {
-        //      sb.Append("Please select a value from the list, then try again.");
-        //   }
-
-        //   return Content(sb.ToString());
-        //}
-
-        public ActionResult GetDogForm()
-        {
-            // Build a List<SelectListItem> to hold branch names and IDs
-            List<SelectListItem> dogNames = new List<SelectListItem>();
-            foreach (Models.ARIA001 branch in branches)
-            {
-                dogNames.Add(new SelectListItem { Text = branch.Name, Value = branch.ID.ToString() });
-            }
-            ViewData["DogNames"] = new SelectList(dogNames, "Value", "Text");
-
-            return View();
-        }
-
-        public ActionResult GetDogList()
-        {
-            return View();
-        }
-
-        public ActionResult GetDogListJSON()
-        {
-            //return Json(branches);
             return Json(branches, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetLocationsJSON()
         {
-            //return Json(branches);
             return Json(locations, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetPlacesToGoJSON()
+        {
+            return Json(placesToGo, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetThingsToDoJSON()
+        {
+            return Json(thingsToDo, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetWhereToStayJSON()
+        {
+            return Json(whereToStay, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetWhatsOnJSON()
+        {
+            return Json(whatsOn, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
