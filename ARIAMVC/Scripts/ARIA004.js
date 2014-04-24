@@ -12,7 +12,7 @@
 		var autoInput;
 		var autoTypes;
 		var autoComplete;
-		var autoPlace
+		var autoPlace;
 
 
         //defines bounding box of all locations
@@ -22,7 +22,22 @@
         var infowindow = new google.maps.InfoWindow();
 		
 		var geocoder = new google.maps.Geocoder();
-       
+		
+		//Layers
+		var trafficLayer;
+		var transitLayer;
+		var weatherLayer;
+		var cloudLayer;
+		var bicycleLayer;
+        var panoramioLayer;
+		var fusTblLayer;
+		var fusTblLayerTwitter;
+		
+		var photoPanel;
+
+
+// Misc 
+		
         //trace function for debugging
         function trace(message)
         {
@@ -31,8 +46,31 @@
                 console.log(message);
             }
         }
-       
+		
+		function mlAlertMsg(msg){
+			var mlAlertMsgShow;
+			mlAlertMsgShow = false;
+			if (mlAlertMsgShow) {
+				alert( msg );
+			}
+		}   
+	   
+// Flickr
+	   
         //toggle array layers on/off
+		function removeArrayLayer(arraylayer)
+        {
+            if (arraylayer) {
+                for (i in arraylayer) {                
+                    if (arraylayer[i].getVisible() == true)
+                    {
+                        arraylayer[i].setMap(null);
+                        arraylayer[i].visible = false;
+                    }
+                }
+            }
+        }
+
         function toggleArrayLayer(arraylayer)
         {
             if (arraylayer) {
@@ -98,30 +136,211 @@
         //Function that gets run when the document loads
         function flickrinitialise(flickrquery)
         {
-			var ctrlVal = document.getElementById("toggleFlickr").checked;
-			if (ctrlVal == true) {
-				toggleArrayLayer(flickr)
-			}
+			removeArrayLayer(flickr);
 			flickr=[];
-			document.getElementById("toggleFlickr").checked = true;
             getFlickr(flickrquery);
         }
-	
-		$('#toggleFlickr').click(function () {
-			toggleArrayLayer(flickr);
-		});
-		
-		$('#flickrsearch').click(function() { 
 
-			var flickrquery = $('#flickrquery').val();
-			if (flickrquery) 
-				flickrinitialise(flickrquery); 
+// Twitter
+
+
+       //Function that gets run when the document loads
+        function twitterinitialise(twitterquery)
+        {
+
+			removeLayer(fusTblLayerTwitter);
+
+			fusTblLayerTwitter = null;
+			
+			if (!fusTblLayerTwitter) {
+				fusTblLayerTwitter = new google.maps.FusionTablesLayer({
+					heatmap: { enabled: false },
+					query: {
+						select: "col3",
+						from: "1749GF6jtMIFaZkXqGCOiXBDuSyijD5ARqdWVpGRX",
+						where: ""
+					},
+					options: {
+						styleId: 2,
+						templateId: 2
+					}
+				});
+			}
+			toggleLayer(fusTblLayerTwitter);
+        }		
+		
+
+// Google layers	
+
+		function removeLayer(this_layer)
+		{
+			mlAlertMsg("toggleLayer")
+			if (this_layer) {
+				if( this_layer.getMap() ){
+					this_layer.setMap(null);
+				}
+			}
+		}
+		
+		function toggleLayer(this_layer)
+		{
+			mlAlertMsg("toggleLayer")
+			if( this_layer.getMap() ){
+				this_layer.setMap(null);
+			}else{
+				this_layer.setMap(flickrmap);
+			}
+		}
+				
+		$('#transitlayer').click(function() { 
+			if (!transitLayer) {
+				removeLayer(transitLayer);
+				transitLayer = null;
+				transitLayer = new google.maps.TransitLayer();
+			}
+			toggleLayer(transitLayer);
+		}); 
+
+		$('#trafficlayer').click(function() { 
+			if (!trafficLayer) {
+				removeLayer(trafficLayer);
+				trafficLayer = null;
+				trafficLayer = new google.maps.TrafficLayer();
+			}
+			toggleLayer(trafficLayer);
 		}); 
 		
+		$('#bicyclelayer').click(function() { 
+			if (!bicycleLayer) {
+				removeLayer(bicycleLayer);
+				bicycleLayer = null;
+				bicycleLayer = new google.maps.BicyclingLayer();;
+			}
+			toggleLayer(bicycleLayer);
+		}); 
+		
+		$('#weatherlayer').click(function() { 
+			if (!weatherLayer) {
+				removeLayer(weatherLayer);
+				weatherLayer = null;			
+				weatherLayer = new google.maps.weather.WeatherLayer({
+					temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS
+				});
+			}
+			toggleLayer(weatherLayer);
+			
+			if (!cloudLayer) {	
+				removeLayer(cloudLayer);
+				cloudLayer = null;			
+				cloudLayer = new google.maps.weather.CloudLayer();
+			}			
+			toggleLayer(cloudLayer);
+		}); 
+
+		$('#panoramiolayer').click(function() { 
+
+			if (!panoramioLayer) {
+				removeLayer(panoramioLayer);
+				panoramioLayer = null;
+				panoramioLayer = new google.maps.panoramio.PanoramioLayer();
+			}
+			toggleLayer(panoramioLayer);
+			
+			/*
+			photoPanel = document.getElementById('photo-panel');
+			flickrmap.controls[google.maps.ControlPosition.RIGHT_TOP].push(photoPanel);
+
+			google.maps.event.addListener(panoramioLayer, 'click', function(photo) {
+				var li = document.createElement('li');
+				var link = document.createElement('a');
+				link.innerHTML = photo.featureDetails.title + ': ' +
+					photo.featureDetails.author;
+				link.setAttribute('href', photo.featureDetails.url);
+				li.appendChild(link);
+				photoPanel.appendChild(li);
+				photoPanel.style.display = 'block';
+			});
+			*/	
+			
+		}); 
+
+
+// Fusion Table 
+		
+		$('#fusTbllayer').click(function() { 
+			if (!fusTblLayer) {
+				removeLayer(fusTblLayer);
+				fusTblLayer = null;
+				fusTblLayer = new google.maps.FusionTablesLayer({
+					heatmap: { enabled: false },
+					query: {
+						select: "col3",
+						from: "1749GF6jtMIFaZkXqGCOiXBDuSyijD5ARqdWVpGRX",
+						where: ""
+					},
+					options: {
+						styleId: 2,
+						templateId: 2
+					}
+				});
+			}
+			toggleLayer(fusTblLayer);
+			
+		}); 
+
+
+
+// Search criteria		
+		
+
+		function isSourceFlickr()
+		{
+			var inputSearchTypeVal =  $("input[name='inputSearchType']:checked").val();
+			if( inputSearchTypeVal == 0  ) {
+				return true
+			} else {
+				return false
+			}
+		}
+
+		function isSourceTwitter()
+		{
+			var inputSearchTypeVal =  $("input[name='inputSearchType']:checked").val();
+			if( inputSearchTypeVal == 1  ) {
+				return true
+			} else {
+				return false
+			}
+		}
+	
+		$('#togglesource').click(function () {
+			if (isSourceFlickr()) {		
+				toggleArrayLayer(flickr);
+			} else {
+				toggleLayer(fusTblLayerTwitter);
+			}
+		});
+		
+		$('#sourcesearch').click(function() { 
+		
+			if (isSourceFlickr()) {		
+				var flickrquery = $('#sourcequery').val();
+				if (flickrquery) 
+					flickrinitialise(flickrquery); 
+			} else {
+				var twitterquery = $('#sourcequery').val();
+				if (twitterquery) 
+					twitterinitialise(twitterquery);
+			}
+			
+		}); 
+
+		
+		
+// Map initialisation
+		
 		function geocodePosition(pos) {
-			geocoder.geocode({
-				latLng: pos
-			}, function(responses) {
+			geocoder.geocode({ latLng: pos }, function(responses) {
 				if (responses && responses.length > 0) {
 					updateMarkerAddress(responses[0].formatted_address);
 				} else {
@@ -145,10 +364,11 @@
 
 		function updateMarkerAddress(str) {
 			document.getElementById('address').innerHTML = str;
-		}
-
+		}	
+	
 		function contInit(position) {
-		
+			mlAlertMsg("contInit");
+
 			curLat = position.coords.latitude;
 			curLng = position.coords.longitude;
 			
@@ -255,7 +475,8 @@
 			google.maps.event.addListener(flickrmarker, 'dragend', function() {
 				updateMarkerStatus('Drag ended');
 				geocodePosition(flickrmarker.getPosition());
-			});		
+			});	
+			
 		}
 		
 		function dispError(error) {
@@ -267,7 +488,9 @@
 			alert("Error: " + errors[error.code]);
 		}
 	
-		function initialize() {		
+		function initialize() {	
+			mlAlertMsg("initialise");
+		
 			if (navigator.geolocation) {
 		        var timeoutVal = 10 * 1000 * 1000;
 		        navigator.geolocation.getCurrentPosition(
@@ -289,7 +512,9 @@
 
 		$('#flickrstart').click(function() { 
 			//google.maps.event.addDomListener(window, 'load', initialize);
+			mlAlertMsg("flickrstart");
 			initialize();
 		}); 
+		
 
 });
