@@ -3,7 +3,7 @@
 		// browser history start
 		
 		if(window.history && window.history.pushState){
-		  window.history.pushState( {tab: "#welcome"}, '#welcome');
+		  window.history.pushState( {tab: "#home"}, '#home');
 		  window.onpopstate = function(event) {  
 			if(event.state){
 			  var tab = (event.state["tab"]);

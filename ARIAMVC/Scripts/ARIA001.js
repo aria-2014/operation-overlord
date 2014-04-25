@@ -3,7 +3,7 @@
 		// browser history start
 		
 		if(window.history && window.history.pushState){
-		  window.history.pushState( {tab: "#welcome"}, '#welcome');
+		  window.history.pushState( {tab: "#home"}, '#home');
 		  window.onpopstate = function(event) {  
 			if(event.state){
 			  var tab = (event.state["tab"]);
@@ -110,21 +110,12 @@
 		    });
 		    $('#divWhatsOn').replaceWith(list);
 		}
-		function showCalendarSource(data) {
-		    var list = "";
-		    $.each(data, function () {
-		        list += this.Desc;
-		    });
-		    $('#divCalendarSource').replaceWith(list);
-		}
 
 
 		$.getJSON('/ARIA001/GetPlacesToGoJSON', null, function (data) { showPlacesToGo(data); });
 		$.getJSON('/ARIA001/GetThingsToDoJSON', null, function (data) { showThingsToDo(data); });
 		$.getJSON('/ARIA001/GetWhereToStayJSON', null, function (data) { showWhereToStay(data); });
 		$.getJSON('/ARIA001/GetWhatsOnJSON', null, function (data) { showWhatsOn(data); });
-
-		$.getJSON('/ARIA001/GetCalendarSourceJSON', null, function (data) { showCalendarSource(data); });
 
         // text content end
 

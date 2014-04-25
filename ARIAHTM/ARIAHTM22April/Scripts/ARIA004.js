@@ -32,7 +32,7 @@
         var panoramioLayer;
 		var fusTblLayer;
 		var fusTblLayerTwitter;
-		
+
 		var photoPanel;
 
 
@@ -513,6 +513,25 @@
 		$('#flickrstart').click(function() { 
 			//google.maps.event.addDomListener(window, 'load', initialize);
 			mlAlertMsg("flickrstart");
+			
+			$("input[name='trafficlayer']").prop('checked', false);
+			$("input[name='transitlayer']").prop('checked', false);
+			$("input[name='weatherlayer']").prop('checked', false);
+			$("input[name='bicyclelayer']").prop('checked', false);
+			$("input[name='panoramiolayer']").prop('checked', false);
+			$("input[name='fusTbllayer']").prop('checked', false);
+			$("input[name='sourcequery']").prop('value', "");
+
+			trafficLayer = null;
+			transitLayer = null;
+			weatherLayer = null;
+			cloudLayer = null;
+			bicycleLayer = null;
+			panoramioLayer = null;
+			fusTblLayer = null;
+			fusTblLayerTwitter = null;
+	        flickr = [];	
+			
 			initialize();
 		}); 
 		
