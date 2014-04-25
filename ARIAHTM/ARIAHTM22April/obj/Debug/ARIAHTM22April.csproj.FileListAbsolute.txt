@@ -19,3 +19,14 @@ C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\ob
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.pdb
 >>>>>>> 7b574ec89c197acff118a99aea99ed525353c252
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.Helpers.dll
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.Razor.dll
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.WebPages.dll
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.WebPages.Razor.dll
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.Helpers.xml
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.Razor.xml
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.WebPages.xml
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\System.Web.WebPages.Razor.xml
