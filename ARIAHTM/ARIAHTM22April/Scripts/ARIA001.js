@@ -22,7 +22,7 @@
 
 		$(function(){
 	  
-		  $("#twitter, #azuremkt, #flickr, #localnotes, #animation, #about").hide().addClass("hidden"); 
+		  $( "#twitter, #azuremkt, #flickr, #localnotes, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
 		  $("#home").addClass("visible");
 		  
 		  $("nav").click(function(event){ 

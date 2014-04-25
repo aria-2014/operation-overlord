@@ -57,6 +57,11 @@ namespace MvcApplication1.Controllers
 				new Models.WhatsOn {ID = 2, Desc = "<p>Music Festival</p>"},
                 new Models.WhatsOn {ID = 3, Desc = "<p>Horse Racing</p>"},
 			};
+        static private List<Models.CalendarSource> calendarSource = new List<Models.CalendarSource>()
+			{
+				new Models.CalendarSource {ID = 1, Desc = "<iframe src='https://www.google.com/calendar/embed?src=richardnevin09%40gmail.com&ctz=Europe/Dublin' style='border: 0' width='800' height='600' frameborder='0' scrolling='no'></iframe>"}
+			};
+
 
 
 
@@ -96,6 +101,11 @@ namespace MvcApplication1.Controllers
         public ActionResult GetWhatsOnJSON()
         {
             return Json(whatsOn, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetCalendarSourceJSON()
+        {
+            return Json(calendarSource, JsonRequestBehavior.AllowGet);
         }
 
     }

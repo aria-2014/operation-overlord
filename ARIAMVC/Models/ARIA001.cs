@@ -44,4 +44,9 @@ namespace MvcApplication1.Models
         public string Desc { get; set; }
     }
 
+    public class CalendarSource
+    {
+        public int ID { get; set; }
+        public string Desc { get; set; }
+    }
 }

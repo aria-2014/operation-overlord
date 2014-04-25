@@ -1,9 +1,5 @@
 $(function() { 
- 
- 
-
- 
- 
+  
  // functions
  
  function getShader(gl, id) {
@@ -63,8 +59,76 @@ function degToRad(degrees) {
 // end functions
 
 
- 
+// shaders
+/*
+<script id="shader-fs" type="x-shader/x-fragment">
+    #ifdef GL_ES
+    precision highp float;
+    #endif
 
+    varying vec4 vColor;
+
+    void main(void) {
+        gl_FragColor = vColor;
+    }
+</script>
+
+<script id="shader-vs" type="x-shader/x-vertex">
+    attribute vec3 aVertexPosition;
+    attribute vec4 aVertexColor;
+
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+
+    varying vec4 vColor;
+
+    void main(void) {
+        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+        vColor = aVertexColor;
+    }
+</script>
+*/
+
+var var_shader_fs =              
+        "#ifdef GL_ES \r\n" +      
+		"precision highp float; \r\n" +      
+		"#endif \r\n" + 
+		"varying vec4 vColor; \r\n" + 	
+        "void main(void) { \r\n" +        
+        "   gl_FragColor = vColor; \r\n" +     
+        "} \r\n"
+    ;
+
+var var_shader_vs =        
+        "attribute vec3 aVertexPosition; \r\n" +      
+		"attribute vec4 aVertexColor; \r\n" +      
+		"uniform mat4 uMVMatrix; \r\n" + 
+		"uniform mat4 uPMatrix; \r\n" + 	
+		"varying vec4 vColor; \r\n" + 	
+        "void main(void) { \r\n" +        
+        "   gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0); \r\n" +     
+        "   vColor = aVertexColor; \r\n" +     
+		"} \r\n"
+    ;
+
+
+function getShaderFromStr(gl, str, type) {
+    var shader;
+	if (type == "fragment") {
+		shader = gl.createShader(gl.FRAGMENT_SHADER);
+	} else {
+		shader = gl.createShader(gl.VERTEX_SHADER);
+	}
+	gl.shaderSource(shader, str);
+	gl.compileShader(shader);
+	if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+		alert(gl.getShaderInfoLog(shader));
+		return null;
+	}
+	return shader;
+}
+	
+// shaders end
 
     var gl;
 
@@ -88,8 +152,13 @@ function degToRad(degrees) {
 
     var shaderProgram;
     function initShaders() {
-        var fragmentShader = getShader(gl, "shader-fs");
-        var vertexShader = getShader(gl, "shader-vs");
+		// next two lines used with script tags for shaders
+        // var fragmentShader = getShader(gl, "shader-fs");
+        // var vertexShader = getShader(gl, "shader-vs");
+		
+		// next two lines used with string shaders
+		var fragmentShader = getShaderFromStr(gl, var_shader_fs, "fragment");
+        var vertexShader = getShaderFromStr(gl, var_shader_vs, "vertex");
 
         shaderProgram = gl.createProgram();
         gl.attachShader(shaderProgram, vertexShader);

@@ -40,35 +40,6 @@
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA006.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA007.js"></script>
 
-		
-		
-<script id="shader-fs" type="x-shader/x-fragment">
-    #ifdef GL_ES
-    precision highp float;
-    #endif
-
-    varying vec4 vColor;
-
-    void main(void) {
-        gl_FragColor = vColor;
-    }
-</script>
-
-<script id="shader-vs" type="x-shader/x-vertex">
-    attribute vec3 aVertexPosition;
-    attribute vec4 aVertexColor;
-
-    uniform mat4 uMVMatrix;
-    uniform mat4 uPMatrix;
-
-    varying vec4 vColor;
-
-    void main(void) {
-        gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
-        vColor = aVertexColor;
-    }
-</script>
-
  
 		
 	</head>
@@ -89,19 +60,21 @@
 						<li class = "dropdown">
 							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media<b class = "caret"></b></a>
 								<ul class = "dropdown-menu">
-									<li><a href = "#twitter">Twitter</a></li>
+									<li><a href = "#flickr" id = "flickrstart">Mapping Layers</a></li>
 									<li><a href = "#azuremkt">Azure Market Place</a></li>
-									<li><a href = "#flickr" id = "flickrstart">Flickr</a></li>
+									<!-- <li><a href = "#twitter">Twitter</a></li> -->
 								</ul>
 						</li>
 						<li class = "dropdown">
 							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Utilities<b class = "caret"></b></a>
 								<ul class = "dropdown-menu">
 									<li><a href = "#localnotes">Local Notes</a></li>
-									<li><a href = "#animation" id = "animationstart">Animation</a></li>
+									<li><a href = "#calendar" id = "calendarstart">View Calendar</a></li>
+									<li><a href = "#animation" id = "animationstart">Time Out</a></li>
 								</ul>
-						</li>						
-						<li><a href = "#contact" data-toggle="modal">Contact</a></li>
+						</li>
+						<li><a href = "#help" data-toggle="modal">Help</a></li>						
+						<li><a href = "#contact">Contact</a></li>
 						<li><a href = "#about">About</a></li>					
 					</ul>
 				</div>
@@ -173,31 +146,31 @@
 			<div class = "row">
 			
 				<div class = "col-md-3">
-					<h3>Places to Go</h3>
+					<h3><p>Places to Go</p></h3>
                     <div id="divPlacesToGo"></div>
                     <br />
 					<a class = "btn btn-info" href="http://www.discoverireland.ie/places-to-go/">More</a>
 				</div>
 				<div class = "col-md-3">
-					<h3>Things to Do</h3>
+					<h3><p>Things to Do</p></h3>
                     <div id="divThingsToDo"></div>
                     <br />
 					<a class = "btn btn-info" href="http://www.discoverireland.ie/things-to-do/">More</a>
 				</div>
 				<div class = "col-md-3">
-					<h3>Where to Stay</h3>
+					<h3><p>Where to Stay</p></h3>
                     <div id="divWhereToStay"></div>
                     <br />
 					<a class = "btn btn-info" href="http://www.discoverireland.ie/where-to-stay/">More</a>
 				</div>
 				
 				<div class = "col-md-3">
-					<h3>What's On</h3>
+					<h3><p>What's On</p></h3>
                     <div id="divWhatsOn"></div>
                     <br />
 					<a class = "btn btn-info" href="http://www.discoverireland.ie/whats-on/">More</a>
-					<br/> 
-					<br/>
+					<br> </br>
+					<br> </br>
 				</div>
 
 			</div>
@@ -205,7 +178,7 @@
 		</div>
 		</section>
 
-				
+		<!-- 	
 		<section id="twitter">
 		<div class = "container">
 
@@ -216,7 +189,7 @@
 			
 		</div>
         </section>
-	
+		-->
 
 	
 		<section id="azuremkt">
@@ -360,6 +333,7 @@
         </section>
 
 		
+
 		<section id="animation">
 		<div class = "container">
 			<div class = "col-md-12">
@@ -368,7 +342,52 @@
 		</div>
         </section>
 
+		<section id="calendar">
+		<div class = "container">
+			<div class = "col-md-12">
+				<div id="divCalendarSource"></div>
+			</div>						
+		</div>
+        </section>
+
+	
+		<section id="contact">
+		<div class = "container">
 		
+					<form class="form-horizontal" role="form">
+						<div class = "header">
+							<p>Contact ARIA 2014 Team</p>
+						</div>
+						<div class = "body">
+						
+							<div class = "form-group">
+								<label for = "contact-name" class = "col-lg-2 control-label">Name:</label>
+								<div class = "col-lg-10">
+									<input type = "text" class = "form-control" id = "contact-name" placeholder = "Full Name">
+								</div>
+							</div>
+							<div class = "form-group">
+								<label for = "contact-email" class = "col-lg-2 control-label">Email:</label>
+								<div class = "col-lg-10">
+									<input type = "email" class = "form-control" id = "contact-email" placeholder = "you@example.com">							
+								</div>
+							</div>
+							<div class = "form-group">
+								<label for = "contact-msg" class = "col-lg-2 control-label">Message:</label>
+								<div class = "col-lg-10">
+									<textarea class = "form-control" rows = 8></textarea>						
+								</div>
+							</div>
+						
+						</div>
+						<div class = "footer">
+							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
+							<button class = "btn btn-primary" type = "submit">Send</button>
+						</div>
+					</form>
+			
+		</div>
+        </section>
 				
 		<section id="about">
 		<div class = "container">
@@ -391,44 +410,27 @@
 		</div>
 
 		
-		
-		<div class = "modal fade" id= "contact" role = "dialog">
+		<div class = "modal fade" id= "help" role = "dialog">
 			<div class = "modal-dialog">
 				<div class = "modal-content">
 					<form class = "form-horizontal">
 						<div class = "modal-header">
-							<p>Contact ARIA 2014 Team</p>
+							<p>Help Information</p>
 						</div>
 						<div class = "modal-body">
 						
-							<div class = "form-group">
-								<label for = "contact-name" class = "col-lg-2 control-label">Name:</label>
-								<div class = "col-lg-10">
-									<input type = "text" class = "form-control" id = "contact-name" placeholder = "Full Name">
-								</div>
-							</div>
-							<div class = "form-group">
-								<label for = "contact-email" class = "col-lg-2 control-label">Email:</label>
-								<div class = "col-lg-10">
-									<input type = "email" class = "form-control" id = "contact-email" placeholder = "you@example.com">							
-								</div>
-							</div>
-							<div class = "form-group">
-								<label for = "contact-msg" class = "col-lg-2 control-label">Message:</label>
-								<div class = "col-lg-10">
-									<textarea class = "form-control" rows = 8></textarea>						
-								</div>
-							</div>
+							<p>Help Information</p>
 						
 						</div>
 						<div class = "modal-footer">
 							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
-							<button class = "btn btn-primary" type = "submit">Send</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+		
+		
 		
 		<div class = "modal fade" id= "tobecompleted" role = "dialog">
 			<div class = "modal-dialog">
