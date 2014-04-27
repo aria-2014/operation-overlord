@@ -6,21 +6,61 @@ $(function() {
 	// Creates a connection to the local database
 	function connectToDB()
 	{
-		db = window.openDatabase('ARIA2014Notes', '1.0', 'ARIA2014Notes Database', 1024*1024*3);
+		try {
+			if (!window.openDatabase) {
+				alert('Databases are not supported in this browser.');
+				return false;
+			} else {
+				db = window.openDatabase('ARIA2014Notes', '1.0', 'ARIA2014Notes Database', 1024*1024*3);
+				return true;
+			}
+		} catch(e) {
+			if (e == 2) {
+				// Version number mismatch.
+				alert("Invalid database version.");
+			} else {
+				alert("Unknown error " + e + ".");
+			}
+			return false;
+		}
 	};
 
 	//Create the table method
 	function createNotesTable()
 	{
 		db.transaction(function(tx){
-		tx.executeSql(
-		"CREATE TABLE notes (id INTEGER \PRIMARY KEY, title TEXT, note TEXT)", [],
-			function(){ 
-				alert('Notes database created successfully!');
-			},
-			function(tx, error){ alert(error.message); } );
-		});
+			var varDummy;
+			tx.executeSql(
+			"CREATE TABLE notes (id INTEGER \PRIMARY KEY, title TEXT, note TEXT)", [],
+				function(){ 
+					//alert('Notes database created successfully!');
+					varDummy = 0;				
+				},
+				function(tx, error){ 
+					//alert(error.message); 
+					varDummy = 0;
+				} 
+			);
+		});	
 	};
+	
+	//Drop the table method
+	/*
+	function dropNotesTable()
+	{	
+		db.transaction(function(tx){
+			tx.executeSql(
+			"DROP TABLE notes;", [],
+				function(){ 
+					alert('Notes table dropped successfully!');		
+				},
+				function(tx, error){ 
+					alert('Notes table dropped failure!');		
+				} 
+			);
+		});	
+	};
+	*/
 
 	//Insert record into Table.
 	function insertNote(title, note)
@@ -141,14 +181,12 @@ $(function() {
 		note.val("");
 	}
 
-
-	$(function(){
-			
-		connectToDB();
+		// Clears out the form and removes the "delete" button
+	function contNoteInit(){
+	
 		createNotesTable();
 		fetchNotes();
 
-  
 		$("#save_button").click(function(event){
 			event.preventDefault();
 			var title = $("#title");
@@ -182,6 +220,17 @@ $(function() {
 		});
   
 		newNote();  
+	}
+
+	$(function(){
+			
+		if ( connectToDB() ) {
+			$("#localnotesstart").attr("href", "#localnotes");
+			contNoteInit();
+		}
+		else {
+			$("#localnotesstart").attr("href", "#localnotesalt");
+		}
 
 	});
 

@@ -22,7 +22,7 @@
 
 		$(function(){
 	  
-		  $( "#twitter, #azuremkt, #flickr, #pinterest, #localnotes, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
+		  $( "#twitter, #azuremkt, #flickr, #pinterest, #localnotes, #localnotesalt, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
 		  $("#home").addClass("visible");
 		  
 		  $("nav").click(function(event){ 
@@ -110,6 +110,15 @@
 		    });
 		    $('#divWhatsOn').replaceWith(list);
 		}
+		
+		function showCalendarSource(data) {
+		    var list = "";
+		    $.each(data, function () {
+		        list += this.Desc;
+		    });
+		    $('#divCalendarSource').replaceWith(list);
+		}
+
 
 
 		$.getJSON('/ARIA001/GetPlacesToGoJSON', null, function (data) { showPlacesToGo(data); });

@@ -71,7 +71,7 @@
 						<li class = "dropdown">
 							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Utilities<b class = "caret"></b></a>
 								<ul class = "dropdown-menu">
-									<li><a href = "#localnotes">Local Notes</a></li>
+									<li><a href = "#localnotes" id = "localnotesstart">Local Notes</a></li>
 									<li><a href = "#calendar" id = "calendarstart">View Calendar</a></li>
 									<li><a href = "#animation" id = "animationstart">Time Out</a></li>
 								</ul>
@@ -328,8 +328,8 @@
                     <div class="thumbnail" ng-repeat="service in services">
                         <img src='{{service.pinboardspic}}' alt="an image">
                         <div class="caption">
-							<a href='{{service.pinboardslink}}' class="thumbnail text-center" target="_blank" >{{service.pinboardsdesc}}</a>
-						</div>
+                            <a href='{{service.pinboardslink}}' class="thumbnail text-center">{{service.pinboardsdesc}}</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -367,6 +367,15 @@
 					</div>
 				</form>
 			</div>		
+		</div>
+        </section>
+		
+		<section id="localnotesalt">
+		<div class = "container">
+            <header>
+                 <h2>Local Database/Notes</h2>
+            </header>
+			<p>Not supported in this version of the Browser</p>
 		</div>
         </section>
 
