@@ -114,8 +114,8 @@ function forecastJSON() {
     jsonfcstdata.axisX = { title: "", fontFamily: "Ariel", fontweight: "bold", tickColor: "#5f5", lineColor: "#9c9", };
     jsonfcstdata.axisY = { title: "", fontFamily: "Ariel", fontweight: "bold", suffix: " %", interval: 20, gridColor: "#fee", tickColor: "#5f5", lineColor: "#9c9", };
     $.each(gobalforecastData, function (index, value) {
-        jsonfcstdata.data[0].dataPoints[index] = ({ click: function () { alert(value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin); }, x: new Date(value.time * 1000), y: (value.cloudCover) * 100 });
-        jsonfcstdata.data[1].dataPoints[index] = ({ click: function () { alert(value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin); }, x: new Date(value.time * 1000), y: (value.precipProbability) * 100 });
+		jsonfcstdata.data[0].dataPoints[index] = ({ click: function () { alert((new Date(value.time*1000).toString().substr(0,15)) + "\n\r"+ value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin+ "\n\r There is a " +value.precipProbability*100+ "% probability of rain\n\rwith " +value.cloudCover*100+"% cloud coverage"); }, x: new Date(value.time * 1000), y: (value.cloudCover) * 100 });
+        jsonfcstdata.data[1].dataPoints[index] = ({ click: function () { alert((new Date(value.time*1000).toString().substr(0,15)) + "\n\r"+ value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin+ "\n\r There is a " +value.precipProbability*100+ "% probability of rain\n\rwith " +value.cloudCover*100+"% cloud coverage"); }, x: new Date(value.time * 1000), y: (value.precipProbability) * 100 });
     });
 }
 
