@@ -225,7 +225,7 @@
         </section>
 
 		
-		
+		<!--MAP PAGE /////////////////////////////////////////////-->
 		<section id="flickr">
 		
 			<div class = "container">
@@ -309,13 +309,74 @@
 					<div class = "col-md-4">
 						<b>Closest matching address:</b>
 						<div id="address"></div>
-						<br> </br>
-						<br> </br>
+						<br /> 
+						<br /> 
 					</div>
 				</div>
 			</div>
 			
-        </section>
+            <!--COLLASPABLE SECTION ON MAP PAGE-->
+            <div class="container-fluid">
+                <div class="panel-group" id="accordion">
+
+                    <!--Row 1 of Accordion-->
+                    <div class="row col-lg-6 col-md-6 col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        Ireland's Top 10 Attractions
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <!--Collapsible Group Item #1 Body-->
+                                    <iframe id="FusionTableAttractions" name="fusiontableattractions" style=" width:100%" height="300" scrolling="yes" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=GVIZ&amp;t=TABLE&amp;q=select+col0%2C+col1%2C+col8+from+1749GF6jtMIFaZkXqGCOiXBDuSyijD5ARqdWVpGRX&amp;containerId=googft-gviz-canvas"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End of row 1-->
+                    <!--Row 2 of Accordion-->
+                    <div class="row col-lg-6 col-md-6 col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                        Weather Chart
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div id="chartContainer" style="border:#666; width:auto; height:300px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End of row -->
+                    <!--Row 3 of Accordion - not needed. left here if needed at a later stage
+            <div class="row col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                Collapsible Group Item #3 Header
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            Collapsible Group Item #3 Body
+                        </div>
+                    </div>
+                </div>
+            </div><!--End of row -->
+
+                </div><!--END OF COLLASPABLE SECTION ON MAP PAGE-->
+            </div><!--End of Fluid Container-->
+
+        </section> <!-- END OF MAP PAGE-->
 
 		
 		
@@ -427,6 +488,7 @@
 							</div>
 						
 						</div>
+
 						<div class = "footer">
 							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
 							<button class = "btn btn-primary" type = "submit">Send</button>
@@ -448,14 +510,14 @@
         </section>
 
 		
-		
+		<!--
 		<div class = "navbar navbar-default navbar-fixed-bottom">
 			<div class = "container">
 				<p class= "navbar-text pull-left">Site Built By ARIA2014 Team</p>
 				<a class = "navbar-btn btn-danger btn pull-right" href = "#tobecompleted" data-toggle="modal">Subscribe Button</a>
 			</div>
 		</div>
-
+-->
 		
 		<div class = "modal fade" id= "help" role = "dialog">
 			<div class = "modal-dialog">
