@@ -81,6 +81,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\customBootstrap.css" />
     <Content Include="Content\fonts\.DS_Store" />
     <Content Include="Content\fonts\codropsicons\.DS_Store" />
     <Content Include="Content\fonts\codropsicons\codropsicons.eot" />
