@@ -238,16 +238,16 @@ var jsonfcstdata = {
 			var lrLng = curLng - 0.30;
 			var upLng = curLng + 0.30;
 			
-			var whereClause = "ST_INTERSECTS(col3, RECTANGLE(LATLNG(" + lrLat + "," + lrLng + "), LATLNG(" + upLat + "," + upLng + ")))";
-			whereClause = whereClause + "AND Attraction CONTAINS IGNORING CASE '" + twitterquery + "'";
+			var whereClause = "ST_INTERSECTS(col4, RECTANGLE(LATLNG(" + lrLat + "," + lrLng + "), LATLNG(" + upLat + "," + upLng + ")))";
+			whereClause = whereClause + "AND TweetText CONTAINS IGNORING CASE '" + twitterquery + "'";
 			//alert (whereClause);
 			
 			if (!fusTblLayerTwitter) {
 				fusTblLayerTwitter = new google.maps.FusionTablesLayer({
 					heatmap: { enabled: false },
 					query: {
-						select: "col3",
-						from: "1749GF6jtMIFaZkXqGCOiXBDuSyijD5ARqdWVpGRX",
+						select: "col4",
+						from: "11_sPhhQ3OtuaOxmPL9unURAOq-5JPSq6tXusqwYF",
 						where: whereClause
 					},
 					options: {
