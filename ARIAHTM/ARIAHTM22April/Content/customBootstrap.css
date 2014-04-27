@@ -4,3 +4,11 @@
 #FushionTableAttrations{
     width:100%;
 }
+
+#sourcequery{
+    width:200px;
+}
+
+input, form, label {
+    display:inline;
+}
