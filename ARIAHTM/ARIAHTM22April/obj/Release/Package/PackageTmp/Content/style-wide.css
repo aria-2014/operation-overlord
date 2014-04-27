@@ -1,0 +1,51 @@
+body {
+	font-size: 12.5pt;
+	line-height: 1.5em;
+}
+
+h1 {
+	font-size: 1.25em;
+}
+
+h2 {
+	font-size: 1.25em;
+	margin-bottom: 0.5em;
+}
+
+.button {
+	font-size: 1.25em;
+	padding: 0.65em 2.25em 0.65em 2.25em;
+}
+
+#header {
+	margin-top: 3em;
+}
+
+#nav {
+	text-align: left;
+}
+
+#nav a {
+	margin-left: 2em;
+}
+
+#hero {
+	border-radius: 0.5em;
+	margin: 3em 0 3em 0;
+	padding: 4em 0 4em 0;
+}
+
+#hero h2 {
+	font-size: 2.5em;
+	margin-bottom: 1em;
+}
+
+#hero p {
+	font-size: 1.25em;
+	margin-bottom: 1.75em;
+}
+
+#footer {
+	margin: 3em 0 3em 0;
+}
+

@@ -11,7 +11,7 @@
 		<link href="../../Content/styles_bs.css" rel="stylesheet" type="text/css" />
 		
         <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />
-
+        <link href="../../Content/customBootstrap.css" rel="stylesheet" />
 		<script type="text/javascript" src="../../Scripts/vendor/angular.js"></script>
 		<script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="../../Scripts/vendor/boostrap/bootstrap.min.js"></script>
@@ -172,8 +172,8 @@
                     <div id="divWhatsOn"></div>
                     <br />
 					<a class = "btn btn-info" href="http://www.discoverireland.ie/whats-on/">More</a>
-					<br> </br>
-					<br> </br>
+					<br/> 
+					<br/>
 				</div>
 
 			</div>
@@ -226,157 +226,168 @@
 
 		
 		<!--MAP PAGE /////////////////////////////////////////////-->
-		<section id="flickr">
-		
-			<div class = "container">
-				<div class = "row">
-		
-						
-					<div class = "col-md-3">
-						<b>Source </b>
-						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-default active">
-								<input type="radio" name="inputSearchType" value="0" checked="checked"> 
-								Flickr
-							</label>
-							<label class="btn btn-default">
-								<input type="radio" name="inputSearchType" value="1">
-								Twitter
-							</label>
-						</div>
-						<br /><br />
-						<b> Query </b>					
-						<input id="sourcequery" name="sourcequery" type="text" size="20" /><br />
-					</div>
-					
-					<div class = "col-md-3">
-						<button class = "btn btn-primary" id="sourcesearch">Search</button>
-						<br /><br />
-						<button class = "btn btn-primary" id="togglesource">Toggle layer</button>
-					</div>
+          <section id="flickr">
 
-					
-					<div class = "col-md-3">
-						<b>Layers</b><br />
-						<input type="checkbox" name="trafficlayer" id="trafficlayer"> Traffic 
-						<input type="checkbox" name="transitlayer" id="transitlayer" > Transit<br />
-						<input type="checkbox" name="weatherlayer" id="weatherlayer" > Weather 
-						<input type="checkbox" name="bicyclelayer" id="bicyclelayer" > Bicycle<br />
-						<input type="checkbox" name="panoramiolayer" id="panoramiolayer" > Panoramio
-						<input type="checkbox" name="fusTbllayer" id="fusTbllayer" > Top Ten<br />
-					</div>
-		
-					<div class = "col-md-3">
-						<div id="chartContainer" style="border:#666; width:auto; height:200px"></div>
-					</div>
-					<!-- map div container
-					<div class = "col-md-9" id="map_canvas" style="width: 100%; height: 100%">
-					</div>
-					-->
-				</div>
-			</div>
-			
-			<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-			<div id="type-selector" class="controls">
-				<input type="radio" name="type" id="changetype-all" checked="checked">
-				<label for="changetype-all">All</label>
-				<input type="radio" name="type" id="changetype-establishment">
-				<label for="changetype-establishment">Establishments</label>
-				<input type="radio" name="type" id="changetype-geocode">
-				<label for="changetype-geocode">Geocodes</label>
-			</div>
-			
-			<!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
-			<ul id="photo-panel">
-				<li><strong>Photos clicked</strong></li>
-			</ul>
-			-->
-			
-			<!-- This does not work when placed above for some reason -->
-			<div id="map_canvas" style="width: 100%; height: 100%">
-			</div>
-			
-			<div class = "container">
-				<div class = "row">				
-					<div class = "col-md-4">
-						<b>Marker status:</b>
-						<div id="markerStatus"><i>Click and drag the marker.</i></div>
-					</div>				
-					<div class = "col-md-4">
-						<b>Current position:</b>
-						<div id="info"></div>
-					</div>
-					<div class = "col-md-4">
-						<b>Closest matching address:</b>
-						<div id="address"></div>
-						<br /> 
-						<br /> 
-					</div>
-				</div>
-			</div>
-			
-            <!--COLLASPABLE SECTION ON MAP PAGE-->
-            <div class="container-fluid">
-                <div class="panel-group" id="accordion">
+              <div class="container">
+                  <div class="row">
 
-                    <!--Row 1 of Accordion-->
-                    <div class="row col-lg-6 col-md-6 col-sm-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                        Ireland's Top 10 Attractions
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse in">
-                                <div class="panel-body">
-                                    <!--Collapsible Group Item #1 Body-->
-                                    <iframe id="FusionTableAttractions" name="fusiontableattractions" style=" width:100%" height="300" scrolling="yes" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=GVIZ&amp;t=TABLE&amp;q=select+col0%2C+col1%2C+col8+from+1749GF6jtMIFaZkXqGCOiXBDuSyijD5ARqdWVpGRX&amp;containerId=googft-gviz-canvas"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--End of row 1-->
-                    <!--Row 2 of Accordion-->
-                    <div class="row col-lg-6 col-md-6 col-sm-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                        Weather Chart
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div id="chartContainer" style="border:#666; width:auto; height:300px"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--End of row -->
-                    <!--Row 3 of Accordion - not needed. left here if needed at a later stage
-            <div class="row col-lg-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                Collapsible Group Item #3 Header
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
+                      <div class="col-sm-12 col-md-12 col-lg-12">
+                          <input id="sourcequery" name="sourcequery" type="text" size="20" placeholder="Search">
+                            Source:
+                          <span class="btn-group" data-toggle="buttons">
+                              <label class="btn btn-default active">
+                                  <input type="radio" name="inputSearchType" value="0" checked="checked">
+                                  Flickr
+                              </label>
+                              <label class="btn btn-default">
+                                  <input type="radio" name="inputSearchType" value="1">
+                                  Twitter
+                              </label>
+                          </span>
+                          <span><button class="btn btn-primary" id="sourcesearch">Search</button></span>
+                          <span><button class="btn btn-primary" id="togglesource">Toggle Layer</button></span>  
+                      </div><!--End of row for searching-->
+                  </div><!--End of Container-->
+                  <br/>
+                  <!--COLLASPABLE BOTTOM SECTION ON MAP PAGE-->
+                  <div class="container-fluid">
+                      <div class="panel-group" id="accordion">
 
-                            Collapsible Group Item #3 Body
-                        </div>
-                    </div>
+                          <!--Row 1 of Accordion-->
+                          <div class="row col-lg-12 col-md-12 col-sm-12">
+                              <div class="panel panel-default">
+                                  <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                              Show Layers
+                                          </a>
+                                      </h4>
+                                  </div>
+                                  <div id="collapseOne" class="panel-collapse collapse in">
+                                      <div class="panel-body">
+                                          <!--Collapsible Group Item #1 Body-->
+                                              Traffic <input type="checkbox" name="trafficlayer" id="trafficlayer">
+                                              Transit <input type="checkbox" name="transitlayer" id="transitlayer">
+                                              Weather <input type="checkbox" name="weatherlayer" id="weatherlayer">
+                                              Bicycle <input type="checkbox" name="bicyclelayer" id="bicyclelayer">
+                                              Panoramio <input type="checkbox" name="panoramiolayer" id="panoramiolayer">
+                                              Top Ten <input type="checkbox" name="fusTbllayer" id="fusTbllayer">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div><!--End of row 1-->
+                      </div> <!--.panel-group-->
+                  </div> <!--.container-fluid-->
+                  <br />
+                    
+                      <!-- map div container
+                <div class = "col-md-9" id="map_canvas" style="width: 100%; height: 100%">
                 </div>
-            </div><!--End of row -->
+                -->
+              </div>
 
-                </div><!--END OF COLLASPABLE SECTION ON MAP PAGE-->
-            </div><!--End of Fluid Container-->
 
-        </section> <!-- END OF MAP PAGE-->
+              <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+              <div id="type-selector" class="controls">
+                  <input type="radio" name="type" id="changetype-all" checked="checked">
+                  <label for="changetype-all">All</label>
+                  <input type="radio" name="type" id="changetype-establishment">
+                  <label for="changetype-establishment">Establishments</label>
+                  <input type="radio" name="type" id="changetype-geocode">
+                  <label for="changetype-geocode">Geocodes</label>
+              </div>
+
+              <!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
+        <ul id="photo-panel">
+            <li><strong>Photos clicked</strong></li>
+        </ul>
+        -->
+              <!-- This does not work when placed above for some reason -->
+              <div id="map_canvas" style="width: 100%; height: 100%">
+
+                  TEST TEXT ON MAP
+              </div>
+
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <b>Marker status:</b>
+                          <div id="markerStatus"><i>Click and drag the marker.</i></div>
+                      </div>
+                      <div class="col-md-4">
+                          <b>Current position:</b>
+                          <div id="info"></div>
+                      </div>
+                      <div class="col-md-4">
+                          <b>Closest matching address:</b>
+                          <div id="address"></div>
+                          <br />
+                      </div>
+                  </div>
+              </div>
+
+              <!--COLLASPABLE BOTTOM SECTION ON MAP PAGE-->
+              <div class="container-fluid">
+                  <div class="panel-group" id="accordion">
+
+                      <!--Row 1 of Accordion-->
+                      <div class="row col-lg-6 col-md-6 col-sm-12">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                          Ireland's Top 10 Attractions
+                                      </a>
+                                  </h4>
+                              </div>
+                              <div id="collapseOne" class="panel-collapse collapse in">
+                                  <div class="panel-body">
+                                      <!--Collapsible Group Item #1 Body-->
+                                      <iframe id="FusionTableAttractions" name="fusiontableattractions" style=" width:100%" height="300" scrolling="yes" frameborder="no" src="https://www.google.com/fusiontables/embedviz?viz=GVIZ&amp;t=TABLE&amp;q=select+col0%2C+col1%2C+col8+from+1749GF6jtMIFaZkXqGCOiXBDuSyijD5ARqdWVpGRX&amp;containerId=googft-gviz-canvas"></iframe>
+                                  </div>
+                              </div>
+                          </div>
+                      </div><!--End of row 1-->
+                      <!--Row 2 of Accordion-->
+                      <div class="row col-lg-6 col-md-6 col-sm-12">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                          Weather Chart
+                                      </a>
+                                  </h4>
+                              </div>
+                              <div id="collapseTwo" class="panel-collapse collapse">
+                                  <div class="panel-body">
+                                      <div id="chartContainer" style="border:#666; width:auto; height:200px"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div><!--End of row -->
+                      <!--Row 3 of Accordion - not needed. left here if needed at a later stage
+                <div class="row col-lg-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                    Collapsible Group Item #3 Header
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                Collapsible Group Item #3 Body
+                            </div>
+                        </div>
+                    </div>
+                </div><!--End of row -->
+
+                  </div><!--END OF COLLASPABLE SECTION ON MAP PAGE-->
+              </div><!--End of Fluid Container-->
+
+          </section> <!-- END OF MAP PAGE-->
 
 		
 		

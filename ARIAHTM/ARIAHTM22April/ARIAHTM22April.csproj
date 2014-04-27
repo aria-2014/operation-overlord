@@ -93,7 +93,14 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\images\causeway.png" />
+    <Content Include="Content\images\dolmon.jpg" />
+    <Content Include="Content\images\thisway.jpg" />
+    <Content Include="Content\images\weather.jpg" />
+    <Content Include="Content\styles_bs.css" />
+    <Content Include="Index.html" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\tourist %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\tourist.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -126,6 +133,7 @@
     <Content Include="Scripts\ARIA005.js" />
     <Content Include="Scripts\ARIA006.js" />
     <Content Include="Scripts\ARIA007.js" />
+    <Content Include="Scripts\glMatrix-0.9.5.min.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -134,6 +142,7 @@
     <Content Include="Scripts\skel.min.js" />
     <Content Include="Scripts\vendor\angular.js" />
     <Content Include="Scripts\vendor\boostrap\bootstrap.min.js" />
+    <Content Include="Scripts\vendor\canvasjs.js" />
     <Content Include="Scripts\vendor\html5shiv.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />
     <Content Include="Scripts\vendor\modernizr-2.6.2.min.js" />
@@ -142,6 +151,7 @@
     <Content Include="Scripts\vendor\sidebar\gnmenu.js" />
     <Content Include="Scripts\vendor\sidebar\modernizr.custom.js" />
     <Content Include="Scripts\vendor\skel.min.js" />
+    <Content Include="Scripts\webgl-utils.js" />
     <Content Include="Scripts\_skel_config.js" />
     <Content Include="Views\ARIA001\index.html" />
     <Content Include="Views\TestPages\IndexBackUpApr27.html" />
