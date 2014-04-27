@@ -22,7 +22,7 @@
 
 		$(function(){
 	  
-		  $( "#twitter, #azuremkt, #flickr, #localnotes, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
+		  $( "#twitter, #azuremkt, #flickr, #pinterest, #localnotes, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
 		  $("#home").addClass("visible");
 		  
 		  $("nav").click(function(event){ 
@@ -116,7 +116,8 @@
 		$.getJSON('/ARIA001/GetThingsToDoJSON', null, function (data) { showThingsToDo(data); });
 		$.getJSON('/ARIA001/GetWhereToStayJSON', null, function (data) { showWhereToStay(data); });
 		$.getJSON('/ARIA001/GetWhatsOnJSON', null, function (data) { showWhatsOn(data); });
-
+		
+		$.getJSON('/ARIA001/GetCalendarSourceJSON', null, function (data) { showCalendarSource(data); });
         // text content end
 
 });

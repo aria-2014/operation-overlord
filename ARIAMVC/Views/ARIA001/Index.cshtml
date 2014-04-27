@@ -9,12 +9,13 @@
 		
 		<link href="../../Content/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<link href="../../Content/styles_bs.css" rel="stylesheet" type="text/css" />
-
 		
         <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />
 
+		<script type="text/javascript" src="../../Scripts/vendor/angular.js"></script>
 		<script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="../../Scripts/vendor/boostrap/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../Scripts/vendor/canvasjs.js"></script>
 
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry,places,panoramio,weather&sensor=false"></script>
 		<!--
@@ -39,6 +40,7 @@
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA005.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA006.js"></script>
 		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA007.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA003.js"></script>
 
  
 		
@@ -61,6 +63,7 @@
 							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media<b class = "caret"></b></a>
 								<ul class = "dropdown-menu">
 									<li><a href = "#flickr" id = "flickrstart">Mapping Layers</a></li>
+									<li><a href="#pinterest" id = "pinterest_menu">Places Of Pinterest</a></li>
 									<li><a href = "#azuremkt">Azure Market Place</a></li>
 									<!-- <li><a href = "#twitter">Twitter</a></li> -->
 								</ul>
@@ -222,6 +225,7 @@
         </section>
 
 		
+		
 		<section id="flickr">
 		
 			<div class = "container">
@@ -261,15 +265,9 @@
 						<input type="checkbox" name="panoramiolayer" id="panoramiolayer" > Panoramio
 						<input type="checkbox" name="fusTbllayer" id="fusTbllayer" > Top Ten<br />
 					</div>
-
-						
-					<div class = "col-md-3">	
-						<b>Marker status:</b>
-						<div id="markerStatus"><i>Click and drag the marker.</i></div>
-						<b>Current position:</b>
-						<div id="info"></div>
-						<b>Closest matching address:</b>
-						<div id="address"></div>
+		
+					<div class = "col-md-3">
+						<div id="chartContainer" style="border:#666; width:auto; height:200px"></div>
 					</div>
 					<!-- map div container
 					<div class = "col-md-9" id="map_canvas" style="width: 100%; height: 100%">
@@ -297,8 +295,48 @@
 			<!-- This does not work when placed above for some reason -->
 			<div id="map_canvas" style="width: 100%; height: 100%">
 			</div>
+			
+			<div class = "container">
+				<div class = "row">				
+					<div class = "col-md-4">
+						<b>Marker status:</b>
+						<div id="markerStatus"><i>Click and drag the marker.</i></div>
+					</div>				
+					<div class = "col-md-4">
+						<b>Current position:</b>
+						<div id="info"></div>
+					</div>
+					<div class = "col-md-4">
+						<b>Closest matching address:</b>
+						<div id="address"></div>
+						<br> </br>
+						<br> </br>
+					</div>
+				</div>
+			</div>
+			
         </section>
+
 		
+		
+		<!-- Pinterest section  -->
+		<section id="pinterest">
+        <div class="container">
+            <div ng-app class="row">
+                <div class="col-sm-6 col-md-4" ng-controller="myPinterestBoardsController">
+                    <h1>Places Of Pinterest</h1>
+                    <div class="thumbnail" ng-repeat="service in services">
+                        <img src='{{service.pinboardspic}}' alt="an image">
+                        <div class="caption">
+                            <a href='{{service.pinboardslink}}' class="thumbnail text-center">{{service.pinboardsdesc}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</section>
+
+
 		
 		<section id="localnotes">
 		<div class = "container">

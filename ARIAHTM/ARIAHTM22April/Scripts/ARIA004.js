@@ -54,6 +54,87 @@
 				alert( msg );
 			}
 		}   
+		
+		
+// Weather Chart Start
+function getForecast() {
+	gobalforecastData = [];
+    var forecastData = [];
+	var reqURL = "https://api.forecast.io/forecast/89279fee14f6fcc1b7d86ca3cf7908cb/";
+	reqURL = reqURL + curLat + "," + curLng;
+	//reqURL = reqURL + "53.426898,-6.257120999999984";
+	reqURL = reqURL + "?callback=?&units=si&exclude=minutely,hourly,alerts,flags";
+    $.ajax({
+        url: reqURL,//exclude=[blocks]
+        jsonp: "callback",
+        dataType: "jsonp",
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            "Content-type": "application/json"
+        },
+        success: function (data) {
+            //forecastData = data.daily.data; //forecastData = data.daily;
+            $.each(data.daily, function (index, value) {
+                if (index == "icon") {
+                    console.log(value);
+                }
+                if (index == "data") {
+                    $.each(value, function (index, value1) {
+                        gobalforecastData.push({
+                            time: value1.time,
+                            summary: value1.summary,
+                            precipProbability: value1.precipProbability,
+                            temperatureMin: value1.temperatureMin,
+                            temperatureMax: value1.temperatureMax,
+                            cloudCover: value1.cloudCover
+                        });
+                        //forecastData.push(value);
+                        console.log(value1.summary);
+                    });
+                }
+                if (index == "summary") {
+                    console.log(value);
+                }
+
+            });
+        },
+        error: function (data) {
+            alert("error");
+        },
+        complete: function () {
+            forecastJSON();
+            drawGraph();
+        }
+    });
+}
+
+
+function forecastJSON() {
+    jsonfcstdata.title = { text: "Weather Forecast", fontFamily: "Times New Roman", fontweight: "bold", fontStyle: "italic", padding: 5, cornerRadius: 4, borderThickness: 2 };
+    jsonfcstdata.axisX = { title: "", fontFamily: "Ariel", fontweight: "bold", tickColor: "#5f5", lineColor: "#9c9", };
+    jsonfcstdata.axisY = { title: "", fontFamily: "Ariel", fontweight: "bold", suffix: " %", interval: 20, gridColor: "#fee", tickColor: "#5f5", lineColor: "#9c9", };
+    $.each(gobalforecastData, function (index, value) {
+        jsonfcstdata.data[0].dataPoints[index] = ({ click: function () { alert(value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin); }, x: new Date(value.time * 1000), y: (value.cloudCover) * 100 });
+        jsonfcstdata.data[1].dataPoints[index] = ({ click: function () { alert(value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin); }, x: new Date(value.time * 1000), y: (value.precipProbability) * 100 });
+    });
+}
+
+
+function drawGraph() {
+    var chart = new CanvasJS.Chart("chartContainer", jsonfcstdata);
+    chart.render();
+}
+
+
+var jsonfcstdata = {
+    data: [
+		{ type: "line", showInLegend: true, legendText: "Cloud cover", indexLabelFontSize: 22, dataPoints: [] },
+		{ type: "line", showInLegend: true, legendText: "Chance of rain", indexLabelFontSize: 22, dataPoints: [] }
+    ]
+};
+
+	
+		
 	   
 // Flickr
 	   
@@ -401,6 +482,9 @@
 			updateMarkerPosition(curLatLng);
 			geocodePosition(curLatLng);
 			
+			// Weather chart
+			getForecast();
+			
 			// Auto complete code start
 			autoInfoWin = new google.maps.InfoWindow();
 			autoInput = (document.getElementById('pac-input'));
@@ -440,6 +524,8 @@
 					updateMarkerPosition(myPos);
 					geocodePosition(myPos);
 					flickrmarker.setVisible(true);
+					
+
 
 					var address = '';
 					if (autoPlace.address_components) {
@@ -452,6 +538,10 @@
 
 					autoInfoWin.setContent('<div><strong>' + autoPlace.name + '</strong><br>' + address);
 					autoInfoWin.open(flickrmap, flickrmarker);
+					
+					// Weather chart
+					getForecast();
+
 			});
 			
 			// Sets a listener on a radio button to change the filter type on Places
@@ -478,12 +568,16 @@
 
 			google.maps.event.addListener(flickrmarker, 'drag', function() {
 				updateMarkerStatus('Dragging...');
-				updateMarkerPosition(flickrmarker.getPosition());
+				//updateMarkerPosition(flickrmarker.getPosition());
 			});
 
 			google.maps.event.addListener(flickrmarker, 'dragend', function() {
 				updateMarkerStatus('Drag ended');
 				geocodePosition(flickrmarker.getPosition());
+				updateMarkerPosition(flickrmarker.getPosition());
+				// Weather chart
+				getForecast();
+
 			});	
 			
 		}
@@ -542,6 +636,7 @@
 	        flickr = [];	
 			
 			initialize();
+			
 		}); 
 		
 
