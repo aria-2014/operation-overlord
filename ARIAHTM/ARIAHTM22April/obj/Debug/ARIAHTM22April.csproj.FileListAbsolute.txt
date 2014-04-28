@@ -6,3 +6,11 @@ C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bi
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.csprojResolveAssemblyReference.cache
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.dll
 C:\Users\Brian\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.pdb
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.dll.config
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.dll
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\ARIAHTM22April.pdb
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.dll
+C:\Users\Administrator\SkyDrive\GitHubRepos\operation-overlord\ARIAHTM\ARIAHTM22April\obj\Debug\ARIAHTM22April.pdb
