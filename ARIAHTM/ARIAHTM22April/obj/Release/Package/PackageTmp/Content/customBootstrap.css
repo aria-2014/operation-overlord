@@ -4,9 +4,12 @@
 #FushionTableAttrations{
     width:100%;
 }
-
+/*Search input Box font-face map Page*/
 #sourcequery{
     width:200px;
+    vertical-align: central;
+   padding-bottom:10px;
+
 }
 
 input, form, label {
@@ -17,3 +20,4 @@ input, form, label {
 #sourcesearch{
     padding-left:4px;
 }
+

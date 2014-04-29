@@ -101,6 +101,7 @@
     <Content Include="Index.html" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\tourist %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\tourist %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\tourist.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -155,8 +156,6 @@
     <Content Include="Scripts\_skel_config.js" />
     <Content Include="Views\ARIA001\index.html" />
     <Content Include="Views\TestPages\IndexNewBootstrapMenu.html" />
-    <Content Include="Views\TestPages\IndexBackUpApr27.html" />
-    <Content Include="Views\TestPages\IndexTest.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@
 		<link href="../../Content/styles_bs.css" rel="stylesheet" type="text/css" />
 		
         <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />
-
+        <link href="../../Content/customBootstrap.css" rel="stylesheet" />
 		<script type="text/javascript" src="../../Scripts/vendor/angular.js"></script>
 		<script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="../../Scripts/vendor/boostrap/bootstrap.min.js"></script>
@@ -47,43 +47,43 @@
 	</head>
   	<body>
 	
-		<div class = "navbar navbar-inverse navbar-static-top">
-			<div class = "container">
-				<a href = "#" class = "navbar-brand">ARIA2014</a>
-				<button class = "navbar-toggle" data-toggle = "collapse" data-target= ".navHeaderCollapse">
-					<span class = "icon-bar"></span>
-					<span class = "icon-bar"></span>
-					<span class = "icon-bar"></span>
-				</button>
-				<nav>
-				<div class = "collapse navbar-collapse navHeaderCollapse">
-					<ul class = "nav navbar-nav navbar-right">
-						<li class= "active"><a href = "#home">Home</a></li>
-						<li class = "dropdown">
-							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media<b class = "caret"></b></a>
-								<ul class = "dropdown-menu">
-									<li><a href = "#flickr" id = "flickrstart">Mapping Layers</a></li>
-									<li><a href="#pinterest" id = "pinterest_menu">Places Of Pinterest</a></li>
-									<li><a href = "#azuremkt">Azure Market Place</a></li>
-									<!-- <li><a href = "#twitter">Twitter</a></li> -->
-								</ul>
-						</li>
-						<li class = "dropdown">
-							<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Utilities<b class = "caret"></b></a>
-								<ul class = "dropdown-menu">
-									<li><a href = "#localnotes" id = "localnotesstart">Local Notes</a></li>
-									<li><a href = "#calendar" id = "calendarstart">View Calendar</a></li>
-									<li><a href = "#animation" id = "animationstart">Time Out</a></li>
-								</ul>
-						</li>
-						<li><a href = "#help" data-toggle="modal">Help</a></li>						
-						<li><a href = "#contact">Contact</a></li>
-						<li><a href = "#about">About</a></li>					
-					</ul>
-				</div>
-				</nav>
-			</div>
-		</div>
+          <div class="navbar navbar-inverse navbar-fixed-bottom">
+              <div class="container">
+                  <a href="#" class="navbar-brand">ARIA2014</a>
+                  <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <nav>
+                      <div class="collapse navbar-collapse navHeaderCollapse">
+                          <ul class="nav navbar-nav navbar-right">
+                              <li class="active"><a href="#home">Home</a></li>
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social Media<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#flickr" id="flickrstart">Mapping Layers</a></li>
+                                      <li><a href="#pinterest" id="pinterest_menu">Places Of Pinterest</a></li>
+                                      <li><a href="#azuremkt">Azure Market Place</a></li>
+                                      <!-- <li><a href = "#twitter">Twitter</a></li> -->
+                                  </ul>
+                              </li>
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#localnotes" id="localnotesstart">Local Notes</a></li>
+                                      <li><a href="#calendar" id="calendarstart">View Calendar</a></li>
+                                      <li><a href="#animation" id="animationstart">Time Out</a></li>
+                                  </ul>
+                              </li>
+                              <li><a href="#help" data-toggle="modal">Help</a></li>
+                              <li><a href="#contact">Contact</a></li>
+                              <li><a href="#about">About</a></li>
+                          </ul>
+                      </div>
+                  </nav>
+              </div>
+          </div>
 		
 		
 		
@@ -172,8 +172,8 @@
                     <div id="divWhatsOn"></div>
                     <br />
 					<a class = "btn btn-info" href="http://www.discoverireland.ie/whats-on/">More</a>
-					<br> </br>
-					<br> </br>
+					<br/> 
+					<br/>
 				</div>
 
 			</div>
@@ -225,97 +225,148 @@
         </section>
 
 		
-		
-		<section id="flickr">
-		
-			<div class = "container">
-				<div class = "row">
-		
-						
-					<div class = "col-md-3">
-						<b>Source </b>
-						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-default active">
-								<input type="radio" name="inputSearchType" value="0" checked="checked"> 
-								Flickr
-							</label>
-							<label class="btn btn-default">
-								<input type="radio" name="inputSearchType" value="1">
-								Twitter
-							</label>
-						</div>
-						<br /><br />
-						<b> Query </b>					
-						<input id="sourcequery" name="sourcequery" type="text" size="20" /><br />
-					</div>
-					
-					<div class = "col-md-3">
-						<button class = "btn btn-primary" id="sourcesearch">Search</button>
-						<br /><br />
-						<button class = "btn btn-primary" id="togglesource">Toggle layer</button>
-					</div>
+		<!--MAP PAGE /////////////////////////////////////////////-->
+          <section id="flickr">
 
-					
-					<div class = "col-md-3">
-						<b>Layers</b><br />
-						<input type="checkbox" name="trafficlayer" id="trafficlayer"> Traffic 
-						<input type="checkbox" name="transitlayer" id="transitlayer" > Transit<br />
-						<input type="checkbox" name="weatherlayer" id="weatherlayer" > Weather 
-						<input type="checkbox" name="bicyclelayer" id="bicyclelayer" > Bicycle<br />
-						<input type="checkbox" name="panoramiolayer" id="panoramiolayer" > Panoramio
-						<input type="checkbox" name="fusTbllayer" id="fusTbllayer" > Top Ten<br />
-					</div>
-		
-					<div class = "col-md-3">
-						<div id="chartContainer" style="border:#666; width:auto; height:200px"></div>
-					</div>
-					<!-- map div container
-					<div class = "col-md-9" id="map_canvas" style="width: 100%; height: 100%">
-					</div>
-					-->
-				</div>
-			</div>
-			
-			<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-			<div id="type-selector" class="controls">
-				<input type="radio" name="type" id="changetype-all" checked="checked">
-				<label for="changetype-all">All</label>
-				<input type="radio" name="type" id="changetype-establishment">
-				<label for="changetype-establishment">Establishments</label>
-				<input type="radio" name="type" id="changetype-geocode">
-				<label for="changetype-geocode">Geocodes</label>
-			</div>
-			
-			<!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
-			<ul id="photo-panel">
-				<li><strong>Photos clicked</strong></li>
-			</ul>
-			-->
-			
-			<!-- This does not work when placed above for some reason -->
-			<div id="map_canvas" style="width: 100%; height: 100%">
-			</div>
-			
-			<div class = "container">
-				<div class = "row">				
-					<div class = "col-md-4">
-						<b>Marker status:</b>
-						<div id="markerStatus"><i>Click and drag the marker.</i></div>
-					</div>				
-					<div class = "col-md-4">
-						<b>Current position:</b>
-						<div id="info"></div>
-					</div>
-					<div class = "col-md-4">
-						<b>Closest matching address:</b>
-						<div id="address"></div>
-						<br> </br>
-						<br> </br>
-					</div>
-				</div>
-			</div>
-			
-        </section>
+
+              <!--NEW BOOSTRAP MENU-->
+              <nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid">
+                      <!-- Search field and toggle button get grouped for better mobile display -->
+                      <div class="navbar-header">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                          </button>
+                          <!--Search Box-->
+                          <a class="navbar-brand" href="#">MyTrip</a>
+                         <!-- <a class="navbar-brand" href="#"><input id="sourcequery" name="sourcequery" class="form-control" type="text" size="20" placeholder="Search"></a>-->
+                      </div>
+
+                      <!-- Bootstrap.com comment: Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <form class="navbar-form navbar-left" role="search">
+                              <div class="form-group">
+                                  <input id="sourcequery" name="sourcequery" class="form-control" type="text" size="20" placeholder="Search">
+                                  <label class="btn btn-default active">
+                                      <input type="radio" name="inputSearchType" value="0" checked="checked">
+                                      Flickr
+                                  </label>
+                                  <label class="btn btn-default">
+                                      <input type="radio" name="inputSearchType" value="1">
+                                      Twitter
+                                  </label>
+                                  <!--Search Button-->
+                                  <button class="btn btn-primary" id="sourcesearch">Search</button>
+                              </div>
+                              <button class="btn btn-primary" id="togglesource">Toggle</button>
+                          </form>
+
+                          <ul class="nav navbar-nav">
+                              <!--<li class="active"><a href="#">Link</a></li>-->
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#"><input type="checkbox" name="fusTbllayer" id="fusTbllayer">  Attractions</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#"><input type="checkbox" name="trafficlayer" id="trafficlayer">  Traffic</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#"><input type="checkbox" name="transitlayer" id="transitlayer">  Transit</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#"><input type="checkbox" name="bicyclelayer" id="bicyclelayer">  Bycle</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#"><input type="checkbox" name="weatherlayer" id="weatherlayer">  Weather</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#"><input type="checkbox" name="panoramiolayer" id="panoramiolayer">   Panoramio</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+
+
+
+                          <!--Links for Right hand side of Map Nav Bar-->
+                          <ul class="nav navbar-nav navbar-right">
+                              <li><a href="#">Link</a></li>
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                      <li><a href="#">Action</a></li>
+                                      <li><a href="#">Another action</a></li>
+                                      <li><a href="#">Something else here</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="#">Separated link</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+              </nav>
+
+              <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+              <div id="type-selector" class="controls">
+                  <input type="radio" name="type" id="changetype-all" checked="checked">
+                  <label for="changetype-all">All</label>
+                  <input type="radio" name="type" id="changetype-establishment">
+                  <label for="changetype-establishment">Establishments</label>
+                  <input type="radio" name="type" id="changetype-geocode">
+                  <label for="changetype-geocode">Geocodes</label>
+              </div>
+
+              <!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
+        <ul id="photo-panel">
+            <li><strong>Photos clicked</strong></li>
+        </ul>
+        -->
+              <!-- This does not work when placed above for some reason -->
+              <div id="map_canvas" style="width: 100%; height: 100%">
+              </div>
+
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <b>Marker status:</b>
+                          <div id="markerStatus"><i>Click and drag the marker.</i></div>
+                      </div>
+                      <div class="col-md-4">
+                          <b>Current position:</b>
+                          <div id="info"></div>
+                      </div>
+                      <div class="col-md-4">
+                          <b>Closest matching address:</b>
+                          <div id="address"></div>
+                          <br />
+                      </div>
+                  </div>
+              </div>
+
+              <!--COLLASPABLE BOTTOM SECTION ON MAP PAGE-->
+              <div class="container-fluid">
+                  <div class="panel-group" id="accordion">
+
+
+                      <!--Row 1 of Accordion-->
+                      <div class="row col-lg-12 col-md-12 col-sm-12">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                          Weather Chart
+                                      </a>
+                                  </h4>
+                              </div>
+                              <div id="collapseTwo" class="panel-collapse collapse">
+                                  <div class="panel-body">
+                                      <div id="chartContainer" style="border:#666; width:auto; height:200px"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div><!--END OF COLLASPABLE SECTION ON MAP PAGE-->
+              </div><!--End of Fluid Container-->
+
+          </section> <!-- END OF MAP PAGE-->
 
 		
 		
@@ -427,6 +478,7 @@
 							</div>
 						
 						</div>
+
 						<div class = "footer">
 							<a class = "btn btn-default" data-dismiss = "modal">Close</a>
 							<button class = "btn btn-primary" type = "submit">Send</button>
@@ -448,14 +500,14 @@
         </section>
 
 		
-		
+		<!--
 		<div class = "navbar navbar-default navbar-fixed-bottom">
 			<div class = "container">
 				<p class= "navbar-text pull-left">Site Built By ARIA2014 Team</p>
 				<a class = "navbar-btn btn-danger btn pull-right" href = "#tobecompleted" data-toggle="modal">Subscribe Button</a>
 			</div>
 		</div>
-
+-->
 		
 		<div class = "modal fade" id= "help" role = "dialog">
 			<div class = "modal-dialog">
