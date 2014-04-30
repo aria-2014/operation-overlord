@@ -198,11 +198,29 @@ var jsonfcstdata = {
             });
         }
                
-        //Function to get data from Flickr
-        function getFlickr(search)
+        //Function to get data from Flickr		
+		function getFlickr(search, searchbyuserid)
         {
             bounds = new google.maps.LatLngBounds ();
-            $.getJSON('http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text='+search+'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?',
+
+            //alert("(1) " + search + " (2) " +  searchbyuserid);
+            
+            //setup request based on search and searchbyuserid function parameters
+            if (search && searchbyuserid) {
+                var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text='+search+'&id=' + searchbyuserid +'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+            }
+            else {
+                if (search) {
+                    var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text='+search+'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+                }
+                else {
+                    var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&id=' + searchbyuserid +'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+                }
+            }
+			
+			//alert (req);
+			
+            $.getJSON(req,
                 function(data)
                 {trace(data);
                     $.each(data.photos.photo, function(i,item){
@@ -214,20 +232,21 @@ var jsonfcstdata = {
                 }
             );
         }
+
                        
         //Function that gets run when the document loads
-        function flickrinitialise(flickrquery)
+        function flickrinitialise(flickrquery, flickrquerybyuserid)
         {
 			removeArrayLayer(flickr);
 			flickr=[];
-            getFlickr(flickrquery);
+            getFlickr(flickrquery, flickrquerybyuserid);
         }
 
 // Twitter
 
         function twitterinitialise(twitterquery)
         {
-
+			//(twitterquery);
 			removeLayer(fusTblLayerTwitter);
 
 			fusTblLayerTwitter = null;
@@ -444,20 +463,22 @@ var jsonfcstdata = {
 			}
 		});
 		
-		$('#sourcesearch').click(function() { 
-		
+		function StartSearch () {
 			if (isSourceFlickr()) {		
-				var flickrquery = $('#sourcequery').val();
-				if (flickrquery) 
-					flickrinitialise(flickrquery); 
+				var flickrquery = $('#sourcequery').val() + "";
+				var flickrquerybyuserid = $('#squbyuserid').val() + "";
+				if (flickrquery || flickrquerybyuserid) 
+					flickrinitialise(flickrquery, flickrquerybyuserid); 
 			} else {
 				var twitterquery = $('#sourcequery').val();
 				if (twitterquery) 
 					twitterinitialise(twitterquery);
 			}
-			
+		}		
+//		$('#sourcesearch, #sourcesearchbyuserid').click(function() { 
+		$('#sourcesearch').click(function() { 
+			StartSearch();			
 		}); 
-
 		
 		
 // Map initialisation
@@ -646,17 +667,19 @@ var jsonfcstdata = {
 			$('#map-canvas').css('height', (h - offsetTop));
 		}).resize();
 
-		$('#flickrstart').click(function() { 
+		function flickrStart() {	
 			//google.maps.event.addDomListener(window, 'load', initialize);
 			mlAlertMsg("flickrstart");
 			
-			$("input[name='trafficlayer']").prop('checked', false);
-			$("input[name='transitlayer']").prop('checked', false);
-			$("input[name='weatherlayer']").prop('checked', false);
-			$("input[name='bicyclelayer']").prop('checked', false);
-			$("input[name='panoramiolayer']").prop('checked', false);
-			$("input[name='fusTbllayer']").prop('checked', false);
+			//$("input[name='trafficlayer']").prop('checked', false);
+			//$("input[name='transitlayer']").prop('checked', false);
+			//$("input[name='weatherlayer']").prop('checked', false);
+			//$("input[name='bicyclelayer']").prop('checked', false);
+			//$("input[name='panoramiolayer']").prop('checked', false);
+			//$("input[name='fusTbllayer']").prop('checked', false);
+			
 			$("input[name='sourcequery']").prop('value', "");
+			$("input[name='squbyuserid']").prop('value', "");
 
 			trafficLayer = null;
 			transitLayer = null;
@@ -670,7 +693,14 @@ var jsonfcstdata = {
 			
 			initialize();
 			
+		}
+		
+		$('#flickrstart').click(function() { 
+			flickrStart();
 		}); 
 		
-
+		$(function(){
+			flickrStart();
+		});
+		
 });

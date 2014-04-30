@@ -119,6 +119,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\component.css" />
+    <Content Include="Content\customBootstrap.css" />
+    <Content Include="Content\default.css" />
     <Content Include="Content\images\causeway.png" />
     <Content Include="Content\images\dolmon.jpg" />
     <Content Include="Content\images\thisway.jpg" />

@@ -8,7 +8,7 @@ $(function() {
 	{
 		try {
 			if (!window.openDatabase) {
-				alert('Databases are not supported in this browser.');
+				//alert('Databases are not supported in this browser.');
 				return false;
 			} else {
 				db = window.openDatabase('ARIA2014Notes', '1.0', 'ARIA2014Notes Database', 1024*1024*3);
@@ -221,6 +221,7 @@ $(function() {
   
 		newNote();  
 	}
+	
 
 	$(function(){
 			
@@ -233,5 +234,6 @@ $(function() {
 		}
 
 	});
+	
 
 }); 

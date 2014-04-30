@@ -3,7 +3,7 @@
 		// browser history start
 		
 		if(window.history && window.history.pushState){
-		  window.history.pushState( {tab: "#home"}, '#home');
+		  window.history.pushState( {tab: "#flickr"}, '#flickr');
 		  window.onpopstate = function(event) {  
 			if(event.state){
 			  var tab = (event.state["tab"]);
@@ -22,12 +22,13 @@
 
 		$(function(){
 	  
-		  $( "#twitter, #azuremkt, #flickr, #pinterest, #localnotes, #localnotesalt, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
-		  $("#home").addClass("visible");
+		  //$( "#twitter, #azuremkt, #flickr, #pinterest, #localnotes, #localnotesalt, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
+		  $( "#home, #twitter, #azuremkt, #pinterest, #localnotes, #localnotesalt, #animation, #contact, #help, #calendar, #about").hide().addClass("hidden"); 
+		  $("#flickr").addClass("visible");
 		  
-		  $("nav").click(function(event){ 
+		  $("nav.history").click(function(event){ 
 			target = $(event.target);
-			if(target.is(("nav li a") || ("nav li ul li a"))){   
+			if(target.is(("nav.history li a") || ("nav.history li ul li a"))){   
 			  event.preventDefault();
 			  if ( $(target.attr("href")).hasClass("hidden") ){  
 			  
