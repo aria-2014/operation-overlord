@@ -34,6 +34,8 @@
 		var fusTblLayerTwitter;
 
 		var photoPanel;
+		
+		var gobalforecastData = [];
 
 
 // Misc 
@@ -54,7 +56,14 @@
 			if (mlAlertMsgShow) {
 				alert( msg );
 			}
-		}   
+		}
+		function mlAlertMsg2(msg){
+			var mlAlertMsgShow2;
+			mlAlertMsgShow2 = false;
+			if (mlAlertMsgShow2) {
+				alert( msg );
+			}
+		}   		
 		
 		
 // Weather Chart
@@ -77,7 +86,7 @@ function getForecast() {
             //forecastData = data.daily.data; //forecastData = data.daily;
             $.each(data.daily, function (index, value) {
                 if (index == "icon") {
-                    console.log(value);
+                    //console.log(value);
                 }
                 if (index == "data") {
                     $.each(value, function (index, value1) {
@@ -90,11 +99,11 @@ function getForecast() {
                             cloudCover: value1.cloudCover
                         });
                         //forecastData.push(value);
-                        console.log(value1.summary);
+                        //console.log(value1.summary);
                     });
                 }
                 if (index == "summary") {
-                    console.log(value);
+                    //console.log(value);
                 }
 
             });
@@ -111,9 +120,10 @@ function getForecast() {
 
 
 function forecastJSON() {
-    jsonfcstdata.title = { text: "Weather Forecast", fontFamily: "Times New Roman", fontweight: "bold", fontStyle: "italic", padding: 5, cornerRadius: 4, borderThickness: 2 };
+    //jsonfcstdata.title = { text: "Weather Forecast", fontFamily: "Times New Roman", fontweight: "bold", fontStyle: "italic", padding: 5, cornerRadius: 4, borderThickness: 2 };
     jsonfcstdata.axisX = { title: "", fontFamily: "Ariel", fontweight: "bold", tickColor: "#5f5", lineColor: "#9c9", };
     jsonfcstdata.axisY = { title: "", fontFamily: "Ariel", fontweight: "bold", suffix: " %", interval: 20, gridColor: "#fee", tickColor: "#5f5", lineColor: "#9c9", };
+	
     $.each(gobalforecastData, function (index, value) {
         jsonfcstdata.data[0].dataPoints[index] = ({ click: function () { alert(value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin); }, x: new Date(value.time * 1000), y: (value.cloudCover) * 100 });
         jsonfcstdata.data[1].dataPoints[index] = ({ click: function () { alert(value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin); }, x: new Date(value.time * 1000), y: (value.precipProbability) * 100 });
@@ -123,7 +133,52 @@ function forecastJSON() {
 
 function drawGraph() {
     var chart = new CanvasJS.Chart("chartContainer", jsonfcstdata);
+	resizeChart();
     chart.render();
+}
+
+function resizeChart() {
+			mlAlertMsg2("resizeChart");
+
+			var tmpWidth = parseInt( $(window).width() );
+			mlAlertMsg2( tmpWidth + " ");
+			
+			//var chartDiv = document.getElementById("chartRowSeg");
+			//tmpWidth = chartDiv.style.width;
+			//mlAlertMsg2( tmpWidth + " ");
+			
+			var varWidth;
+			//480, 768, 980
+			//if ( tmpWidth <= 980 ) {
+			//	varWidth = tmpWidth;
+			//} else {
+			//	varWidth = Math.floor(tmpWidth / 2) - 50;
+			//}
+			//mlAlertMsg2( varWidth + " ");
+			
+			switch (true) {
+				case (tmpWidth <= 480): 
+					varWidth = Math.floor( tmpWidth - ((tmpWidth / 100)*10) );
+					break;
+				case (tmpWidth >= 481 && tmpWidth <=767):
+					varWidth = Math.floor( tmpWidth - ((tmpWidth / 100)*10) );
+					break;
+				case (tmpWidth >= 768 && tmpWidth <=979): 
+					varWidth = Math.floor( tmpWidth - ((tmpWidth / 100)*10) );
+					break;
+				default:
+					mlAlertMsg2( "default" );
+					varWidth = Math.floor( (tmpWidth / 2) - ((tmpWidth / 2)/100)*10 );
+					break;
+			}
+			mlAlertMsg2( varWidth + " ");
+			var varHeight = 250;
+		
+			jsonfcstdata.width = varWidth;
+			jsonfcstdata.height = varHeight;
+			
+			$('#chartContainer').css('width', (varWidth));
+			$('#chartContainer').css('height', (varHeight));
 }
 
 
@@ -131,7 +186,9 @@ var jsonfcstdata = {
     data: [
 		{ type: "line", showInLegend: true, legendText: "Cloud cover", indexLabelFontSize: 22, dataPoints: [] },
 		{ type: "line", showInLegend: true, legendText: "Chance of rain", indexLabelFontSize: 22, dataPoints: [] }
-    ]
+    ],
+	width: 0,
+	height: 0
 };
 
 	
@@ -504,6 +561,7 @@ var jsonfcstdata = {
 				curLat,
 				curLng
 			].join(', ');
+			flickrmap.setCenter(flickrmarker.getPosition());
 		}
 
 		function updateMarkerAddress(str) {
@@ -521,7 +579,11 @@ var jsonfcstdata = {
             var myOptions = {
                 zoom: 8,
                 center: curLatLng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+				zoomControl: true,
+				zoomControlOptions: {
+					style: google.maps.ZoomControlStyle.SMALL
+				}
             };			
 			flickrmap = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
 			
@@ -644,7 +706,8 @@ var jsonfcstdata = {
 			};
 			alert("Error: " + errors[error.code]);
 		}
-	
+		//http://www.bootply.com/tagged/maps
+		//css-tricks.com/box-sizing/
 		function initialize() {	
 			mlAlertMsg("initialise");
 		
@@ -661,10 +724,23 @@ var jsonfcstdata = {
 		    }
 		}
 		
-		$(window).resize(function () {
-			var h = $(window).height(),
-			offsetTop = 60; // Calculate the top offset
+		function compResizing() {
+			var h = $(window).height();		
+
+			//Resize map
+			offsetTop = 60;
 			$('#map-canvas').css('height', (h - offsetTop));
+			
+			//Resize chart
+			resizeChart();
+		}
+
+		//$('#chtAccBtn').click(function() { 
+		//	compResizing();
+		//}).resize(); 
+		
+		$(window).resize(function () {
+			compResizing();
 		}).resize();
 
 		function flickrStart() {	

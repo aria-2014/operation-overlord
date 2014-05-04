@@ -144,14 +144,14 @@
 			</div>
 
 		
-			<input id="pac-input" class="controls" type="text" placeholder="Enter a location"/>
+			<input id="pac-input" class="controls" type="text" placeholder="Location"/>
 			<div id="type-selector" class="controls">
 				<input type="radio" name="type" id="changetype-all" checked="checked"/>
 				<label for="changetype-all">All</label>
 				<input type="radio" name="type" id="changetype-establishment"/>
-				<label for="changetype-establishment">Establishments</label>
+				<label for="changetype-establishment">Est</label>
 				<input type="radio" name="type" id="changetype-geocode"/>
-				<label for="changetype-geocode">Geocodes</label>
+				<label for="changetype-geocode">Geo</label>
 			</div>
 			
 			<!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
@@ -166,42 +166,43 @@
 
 					
 			<div class = "container">
-				<div class = "row">					
-                   <div class = "col-md-6">
-				   <!-- Accordion for criterion -->
+				<div class = "row" id="chartRow">		
+					<div class = "col-md-6" id="chartRowSeg">
+					<!-- Accordion for criterion -->
                     <div class="container-fluid">
-                         <div class="accordion" id="flickrAccordion-3">
-                            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-3" data-parent="#flickrAccordion-3">Weather Forecast</button>
+                         <div class="accordion" id="chartAccordion">
+                            <button id="chtAccBtn" type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-3" data-parent="#chartAccordion">Weather Forecast</button>
                                 <div id="collapsible-3" class="collapse">
-                                    <div class = "col-md-12">
-                                        <div id="chartContainer" style="border:#666; width:auto; height:200px"></div>
-                                    </div>                            
+                                    <!-- <div class = "col-md-12">-->
+                                        <div id="chartContainer" style="border:#666; width:auto; height:auto"></div>
+                                    <!--</div>      -->                      
                                 </div>
                         </div>
                     </div>
-                    </div>
+                    </div>		
                     <div class = "col-md-6">          
                     <!-- Accordion for criterion -->
                     <div class="container-fluid">
                          <div class="accordion" id="flickrAccordion-2">
                             <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-2" data-parent="#flickrAccordion-2">Location Information</button>
                                 <div id="collapsible-2" class="collapse">
-                                    <div class = "col-md-4">
+                                    <!--<div class = "col-md-4">-->
                                         <b>Marker status:</b>
                                         <div id="markerStatus"><i>Click and drag the marker.</i></div>
-                                    </div>				
-                                    <div class = "col-md-4">
+                                    <!--</div>	-->			
+                                    <!--<div class = "col-md-4">-->
                                         <b>Current position:</b>
                                         <div id="info"></div>
-                                    </div>
-                                    <div class = "col-md-4">
+                                    <!--</div>-->
+                                    <!--<div class = "col-md-4">-->
                                         <b>Closest matching address:</b>
                                         <div id="address"></div>
-                                    </div>
+                                    <!--</div>-->
                                 </div>
                         </div>
                     </div>
                     </div>
+					
 					
 				</div>
 			</div>

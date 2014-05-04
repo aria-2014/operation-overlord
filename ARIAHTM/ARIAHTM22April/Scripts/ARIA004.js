@@ -74,7 +74,10 @@ function getForecast() {
 	reqURL = reqURL + curLat + "," + curLng;
 	//reqURL = reqURL + "53.426898,-6.257120999999984";
 	reqURL = reqURL + "?callback=?&units=si&exclude=minutely,hourly,alerts,flags";
-    $.ajax({
+	//https://api.forecast.io/forecast/89279fee14f6fcc1b7d86ca3cf7908cb/53.426898,-6.257120999999984?callback=?&units=si&exclude=minutely,hourly,alerts,flags
+	
+    //$.ajax({
+	ARIACallOuts.ForecastCallOut({
         url: reqURL,//exclude=[blocks]
         jsonp: "callback",
         dataType: "jsonp",
@@ -276,7 +279,11 @@ var jsonfcstdata = {
             }
 			
 			//alert (req);
+			//console.log(req);
+			// sample call
+			//http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text=cats&lat=53.377699&lon=-6.236904999999979&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?
 			
+			/*
             $.getJSON(req,
                 function(data)
                 {trace(data);
@@ -288,6 +295,20 @@ var jsonfcstdata = {
                     });    
                 }
             );
+			*/
+			
+			ARIACallOuts.FlickrCallOut(req,
+                function(data)
+                {trace(data);
+                    $.each(data.photos.photo, function(i,item){
+                        infowindowcontent = '<strong>'+item.title+'</strong><br>';
+                        infowindowcontent += '<a href="'+item.url_m+'" target="_top">';
+                        infowindowcontent += '<img src="'+item.url_t+'"></a>';
+                        createFlickrMarker(i,item.latitude,item.longitude,infowindowcontent,item.url_sq); 
+                    });    
+                }
+            );
+			
         }
 
                        
