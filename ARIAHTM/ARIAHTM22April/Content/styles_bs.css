@@ -15,7 +15,9 @@ body {
 
 html, body, section, container, .row, .col-md-9 { height: 100% }
 html { height: 100% }
-
+#map_canvas {
+	height: 100%;
+}
 
 #map_canvas img {
 	max-width: none !important;
@@ -47,7 +49,7 @@ html { height: 100% }
         border-color: #4d90fe;
         margin-left: -1px;
         padding-left: 14px;  /* Regular padding-left + 1. */
-        width: 401px;
+        width: 100px;
       }
 
       .pac-container {
@@ -65,3 +67,4 @@ html { height: 100% }
         font-size: 13px;
         font-weight: 300;
       }
+	  
