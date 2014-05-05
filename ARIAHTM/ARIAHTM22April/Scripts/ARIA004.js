@@ -76,16 +76,23 @@ function getForecast() {
 	reqURL = reqURL + "?callback=?&units=si&exclude=minutely,hourly,alerts,flags";
 	//https://api.forecast.io/forecast/89279fee14f6fcc1b7d86ca3cf7908cb/53.426898,-6.257120999999984?callback=?&units=si&exclude=minutely,hourly,alerts,flags
 	
-    //$.ajax({
-	ARIACallOuts.ForecastCallOut({
-        url: reqURL,//exclude=[blocks]
-        jsonp: "callback",
-        dataType: "jsonp",
-        headers: {
+
+	ARIACallOuts.ForecastCallOut(
+        reqURL,//exclude=[blocks]
+        "callback",
+        "jsonp",
+        {
             'Access-Control-Allow-Origin': '*',
             "Content-type": "application/json"
         },
-        success: function (data) {
+        getForecastSuccess,
+        getForecastError,
+        getForecastComp
+    );
+	
+}
+
+function getForecastSuccess(data) {
             //forecastData = data.daily.data; //forecastData = data.daily;
             $.each(data.daily, function (index, value) {
                 if (index == "icon") {
@@ -110,15 +117,14 @@ function getForecast() {
                 }
 
             });
-        },
-        error: function (data) {
-            alert("error");
-        },
-        complete: function () {
-            forecastJSON();
-            drawGraph();
-        }
-    });
+}
+
+function getForecastError(data) {
+	alert("error");
+}
+function getForecastComp() {
+	forecastJSON();
+	drawGraph();
 }
 
 

@@ -45,23 +45,14 @@ var forecastData =
     afterEach(function () {
         server.restore();
     });
-
-
-    it ("Should hit a fake Forecast server for data", function() {
 	
-        server.respondWith(JSON.stringify(forecastData));
-		var request = "";
-        var callback = jasmine.createSpy('callback')
-		
-		//Not sure how the next call should be structured.
-        ARIACallOuts.ForecastCallOut({url:request, success:callback})
-        server.respond();
-        expect(callback).toHaveBeenCalled();
-
-        var response = callback.calls.mostRecent().args[0];
-		
-		expect(response.latitude).toEqual(forecastData.latitude);
-    })
+	var reqURL = "testURL";
+	var reqJsonp = "";
+	var reqDataType = "";
+	var reqHeaders = {};
+	function reqSuccess (data){};
+	function reqError (data){};
+	function reqComplete (){};
 	
     it ("Should hit a fake Flickr server for data", function() {
 	
@@ -78,7 +69,89 @@ var forecastData =
 		expect(response.photos.photo[1].id).toEqual(flickrData.photos.photo[1].id);
 		expect(response.photos.photo[1].id).toEqual(flickrData.photos.photo[1].id);
 		expect(response.photos.stat).toEqual(flickrData.photos.stat);
-    })
+    });
 
+	
+	
+	it("Forecast test: should make an Ajax request to the correct URL", function() {
+		var reqURL = "testURL";
+		var reqJsonp = "";
+		var reqDataType = "";
+		var reqHeaders = {};
+	
+		sinon.spy($, "ajax");
+		ARIACallOuts.ForecastCallOut( reqURL, reqJsonp, reqDataType, reqHeaders, reqSuccess, reqError, reqComplete);
+		var call = $.ajax.getCall(0);
+		expect (call).not.toBeNull();
+		expect(call.args[0]["url"]).toEqual(reqURL);
+		//expect($.ajax.mostRecentCall.args[0]["url"]).toEqual(reqURL);
+		$.ajax.restore();
+	});	
+	
+	it("Forecast test: should receive a successful response", function() {
+	
+		// simulate a successful Ajax result
+		// chain to the spyOn() constructor, the andCallFake() method, passing in an anonymous function that calls the Ajax success() event handler
+	
+		spyOn($, "ajax").and.callFake(function(e) {
+			e.success({});
+			e.complete({});
+		});
+ 
+		var reqSuccess = jasmine.createSpy("reqSuccess");
+ 		var reqError = jasmine.createSpy("reqError");
+		var reqComplete = jasmine.createSpy("reqComplete");
+ 	
+		ARIACallOuts.ForecastCallOut( reqURL, reqJsonp, reqDataType, reqHeaders, reqSuccess, reqError, reqComplete);
+
+		expect(reqSuccess).toHaveBeenCalled();  //Verifies this was called
+		expect(reqError).not.toHaveBeenCalled();  //Verifies this was NOT called
+		expect(reqComplete).toHaveBeenCalled();  //Verifies this was called
+	});
+
+	it("Forecast test: should receive a on error response", function() {
+	
+		// simulate a successful Ajax result
+		// chain to the spyOn() constructor, the andCallFake() method, passing in an anonymous function that calls the Ajax error() event handler
+	
+		spyOn($, "ajax").and.callFake(function(e) {
+			e.error({});
+			e.complete({});
+		});
+ 
+		var reqSuccess = jasmine.createSpy("reqSuccess");
+ 		var reqError = jasmine.createSpy("reqError");
+		var reqComplete = jasmine.createSpy("reqComplete");
+ 	
+		ARIACallOuts.ForecastCallOut( reqURL, reqJsonp, reqDataType, reqHeaders, reqSuccess, reqError, reqComplete);
+
+		expect(reqSuccess).not.toHaveBeenCalled();  //Verifies this was NOT called
+		expect(reqError).toHaveBeenCalled();  //Verifies this was called
+		expect(reqComplete).toHaveBeenCalled();  //Verifies this was called
+	});
+
+	it("Forecast test: should return data", function() {
+		var fakeData = JSON.stringify(forecastData);
+	
+		// simulate a successful Ajax result
+		// chain to the spyOn() constructor, the andCallFake() method, passing in an anonymous function that calls the Ajax success() event handler
+	
+		spyOn($, "ajax").and.callFake(function(e) {
+			e.success( { data:"entry" } );
+		});
+ 
+ 		var reqSuccess = jasmine.createSpy("reqSuccess");
+ 		var reqError = jasmine.createSpy("reqError");
+		var reqComplete = jasmine.createSpy("reqComplete");
+ 	
+		ARIACallOuts.ForecastCallOut( reqURL, reqJsonp, reqDataType, reqHeaders, reqSuccess, reqError, reqComplete);
+
+		var resData = reqSuccess.calls.mostRecent().args[0];
+		
+		//expect(reqSuccess).toHaveBeenCalled();
+		//expect(resData.data.latitude).toEqual(forecastData.latitude);
+		expect(reqSuccess).toHaveBeenCalledWith( { data:"entry" } );
+
+	});
 	
 })

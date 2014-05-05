@@ -7,9 +7,22 @@ var ARIACallOuts = (function () {
             $.getJSON(request, callback);
 
         },
-		ForecastCallOut: function (calloutObject) {
+		ForecastCallOut: function (reqURL,reqJsonp,reqDataType,reqHeaders,reqSuccess,reqError,reqComplete) {
 
-            $.ajax(calloutObject);
+            $.ajax({ url: reqURL,
+				jsonp: reqJsonp,
+				dataType: reqDataType,
+				headers: reqHeaders,
+				success: function (data) {
+						reqSuccess( data );
+					},
+				error: function (data) {
+						reqError( data );
+					},
+				complete: function () {
+						reqComplete();
+					}
+				});
 
         }
 
