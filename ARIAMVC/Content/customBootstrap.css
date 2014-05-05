@@ -1,23 +1,25 @@
 ﻿body {
 }
 
-#FushionTableAttrations{
-    width:100%;
-}
-/*Search input Box font-face map Page*/
-#sourcequery{
-    width:200px;
-    vertical-align: central;
-   padding-bottom:10px;
-
-}
-
-input, form, label {
-    display:inline;
-}
 
 
-#sourcesearch{
-    padding-left:4px;
+
+#buttonMappingInfo, #buttonStdLayers{width:185px;}
+
+#sourcequery, #squbyuserid{width:185px;} /*Flickr / Twitter Search box*/
+
+#toggleFlickr, #toggleTwitter {width:92.5px;} /*Toggle Flickr /Twitter buttons */
+
+#sourcesearch {width:50px;} /*Go! button*/
+
+#togglesource{width:132.5px;} /*Toggle Layers button*/
+
+/*#col1, #col2, #col3, #col4{*/
+.col-lg-3{
+    width: 217px;
+    padding-right:-4px;
+    padding-left:-4px;
+    margin-left:-4px;
+    margin-right:-4px;
 }
 

@@ -92,131 +92,122 @@
           </div>
 
 
-          <section id="flickr">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-md-12">
-                          <!-- Accordion for criterion -->
+		<section id="flickr">
+			<div class = "container">
+				<div class = "row">					
+                    <div class = "col-md-12">
+				   <!-- Accordion for criterion -->
+                    <div class="container-fluid">
+                    <div class="accordion" id="mapAccordion">
+                            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#mapCollapsible" data-parent="#mapAccordion">Mapping Information</button>
+					<div id="mapCollapsible" class="collapse">
+					
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Standard Layers <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" name="fusTbllayer" id="fusTbllayer">Top Ten</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" name="trafficlayer" id="trafficlayer">Traffic</a></li>
+                                <li><a href="#" name="transitlayer" id="transitlayer">Transit</a></li>
+                                <li><a href="#" name="weatherlayer" id="weatherlayer">Weather</a></li>
+                                <li><a href="#" name="bicyclelayer" id="bicyclelayer">Bicycle</a></li>
+                                <li><a href="#" name="panoramiolayer" id="panoramiolayer">Panoramio</a></li>
+                            </ul>
+                        </div>                        
+					
+					
+					    <form role="form" class="form-inline">					
+                        <input id="sourcequery" name="sourcequery" type="text" class="form-control" placeholder="flickr/twitter" style="width:100px"></input>
+                        <input id="squbyuserid" name="squbyuserid" type="text" class="form-control" placeholder="flickr user id" style="width:100px"></input>
+						</form>
 
-                          <button id="buttonMappingInfo" type="button" class="btn btn-default" data-toggle="collapse" data-target="#mapCollapsible" data-parent="#mapAccordion">Mapping Information</button>
+						<button id="sourcesearch" class="btn btn-default" type="button">Go!</button>
 
-                          <div class="input-group-btn">
-                              <button id="buttonStdLayers" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Standard Layers <span class="caret"></span></button>
-                              <ul class="dropdown-menu">
-                                  <li><a href="#" name="fusTbllayer" id="fusTbllayer">Top Ten</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#" name="trafficlayer" id="trafficlayer">Traffic</a></li>
-                                  <li><a href="#" name="transitlayer" id="transitlayer">Transit</a></li>
-                                  <li><a href="#" name="weatherlayer" id="weatherlayer">Weather</a></li>
-                                  <li><a href="#" name="bicyclelayer" id="bicyclelayer">Bicycle</a></li>
-                                  <li><a href="#" name="panoramiolayer" id="panoramiolayer">Panoramio</a></li>
-                              </ul>
-                          </div>
-                      </div><!--.col-->
-                  </div><!--.row-->
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <input type="radio" name="inputSearchType" value="0" checked="checked" /> 
+                                Flickr
+                            </label>
+                            <label class="btn btn-default">
+                                 <input type="radio" name="inputSearchType" value="1" />
+                                Twitter
+                            </label>
+                        </div>
+						
+                       <button class = "btn btn-primary" id="togglesource">Toggle layers</button>
 
-                      <div class="row">
+                    </div>
+                    </div>
+					</div>
+					</div>
+				</div>
+			</div>
 
-                          <form role="form" class="form-inline">
-                              <div id="col1"class="col-xs-12 col-sm-3  col-lg-3 ">
-                                  <div class="form-group">
-                                      <input id="sourcequery" name="sourcequery" type="text" class="form-control" placeholder="Flickr / Twitter">
-                                  </div>
-                              </div><!--.col-->
+		
+			<input id="pac-input" class="controls" type="text" placeholder="Location"/>
+			<div id="type-selector" class="controls">
+				<input type="radio" name="type" id="changetype-all" checked="checked"/>
+				<label for="changetype-all">All</label>
+				<input type="radio" name="type" id="changetype-establishment"/>
+				<label for="changetype-establishment">Est</label>
+				<input type="radio" name="type" id="changetype-geocode"/>
+				<label for="changetype-geocode">Geo</label>
+			</div>
+			
+			<!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
+			<ul id="photo-panel">
+				<li><strong>Photos clicked</strong></li>
+			</ul>
+			-->
+			
+			<!-- This does not work when placed above for some reason -->
+			<div id="map_canvas" style="width: 100%; height: 100%">
+			</div>
 
-                              <div id="col2" class="col-xs-12 col-sm-3  col-lg-3">
-                                  <div class="form-group">
-                                      <input id="squbyuserid" name="squbyuserid" type="text" class="form-control" placeholder="Flickr User ID">
-                                  </div>
-                              </div><!--.col-->
-                          </form>
-                          <div class="cold-md-6">
-                              <div id="col3" class="col-xs-12 col-sm-0 col-lg-3">
-                                  <div class="btn-group" data-toggle="buttons">
-                                      <label id="toggleFlickr" class="btn btn-default active">
-                                          <input type="radio" name="inputSearchType" value="0" checked="checked" />
-                                          Flickr
-                                      </label>
-                                      <label id="toggleTwitter" class="btn btn-default">
-                                          <input type="radio" name="inputSearchType" value="1" />
-                                          Twitter
-                                      </label>
-                                  </div><!--.col-xs .col--->
-                              </div><!--.col-md-->
-
-                              <div id="col4" class="col-xs-12 col-sm-0 col-lg-3">
-                                  <button id="sourcesearch" class="btn btn-default" type="button">Go!</button>
-                                  <button class="btn btn-primary" id="togglesource">Toggle Layers</button>
-                              </div><!--.col-->
-                          </div>
-                      </div><!--.row-->
-              </div><!--.container-->
-
-
-
-                  <input id="pac-input" class="controls" type="text" placeholder="Location" />
-                  <div id="type-selector" class="controls">
-                      <input type="radio" name="type" id="changetype-all" checked="checked" />
-                      <label for="changetype-all">All</label>
-                      <input type="radio" name="type" id="changetype-establishment" />
-                      <label for="changetype-establishment">Est</label>
-                      <input type="radio" name="type" id="changetype-geocode" />
-                      <label for="changetype-geocode">Geo</label>
-                  </div>
-
-                  <!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
-            <ul id="photo-panel">
-                <li><strong>Photos clicked</strong></li>
-            </ul>
-            -->
-                  <!-- This does not work when placed above for some reason -->
-                  <div id="map_canvas" style="width: 100%; height: 100%">
-                  </div>
-
-
-                  <div class="container">
-                      <div class="row" id="chartRow">
-                          <div class="col-md-6" id="chartRowSeg">
-                              <!-- Accordion for criterion -->
-                              <div class="container-fluid">
-                                  <div class="accordion" id="chartAccordion">
-                                      <button id="chtAccBtn" type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-3" data-parent="#chartAccordion">Weather Forecast</button>
-                                      <div id="collapsible-3" class="collapse">
-                                          <!-- <div class = "col-md-12">-->
-                                          <div id="chartContainer" style="border:#666; width:auto; height:auto"></div>
-                                          <!--</div>      -->
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-6">
-                              <!-- Accordion for criterion -->
-                              <div class="container-fluid">
-                                  <div class="accordion" id="flickrAccordion-2">
-                                      <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-2" data-parent="#flickrAccordion-2">Location Information</button>
-                                      <div id="collapsible-2" class="collapse">
-                                          <!--<div class = "col-md-4">-->
-                                          <b>Marker status:</b>
-                                          <div id="markerStatus"><i>Click and drag the marker.</i></div>
-                                          <!--</div>	-->
-                                          <!--<div class = "col-md-4">-->
-                                          <b>Current position:</b>
-                                          <div id="info"></div>
-                                          <!--</div>-->
-                                          <!--<div class = "col-md-4">-->
-                                          <b>Closest matching address:</b>
-                                          <div id="address"></div>
-                                          <!--</div>-->
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-
-                      </div>
-                  </div>
-
-          </section>
+					
+			<div class = "container">
+				<div class = "row" id="chartRow">		
+					<div class = "col-md-6" id="chartRowSeg">
+					<!-- Accordion for criterion -->
+                    <div class="container-fluid">
+                         <div class="accordion" id="chartAccordion">
+                            <button id="chtAccBtn" type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-3" data-parent="#chartAccordion">Weather Forecast</button>
+                                <div id="collapsible-3" class="collapse">
+                                    <!-- <div class = "col-md-12">-->
+                                        <div id="chartContainer" style="border:#666; width:auto; height:auto"></div>
+                                    <!--</div>      -->                      
+                                </div>
+                        </div>
+                    </div>
+                    </div>		
+                    <div class = "col-md-6">          
+                    <!-- Accordion for criterion -->
+                    <div class="container-fluid">
+                         <div class="accordion" id="flickrAccordion-2">
+                            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-2" data-parent="#flickrAccordion-2">Location Information</button>
+                                <div id="collapsible-2" class="collapse">
+                                    <!--<div class = "col-md-4">-->
+                                        <b>Marker status:</b>
+                                        <div id="markerStatus"><i>Click and drag the marker.</i></div>
+                                    <!--</div>	-->			
+                                    <!--<div class = "col-md-4">-->
+                                        <b>Current position:</b>
+                                        <div id="info"></div>
+                                    <!--</div>-->
+                                    <!--<div class = "col-md-4">-->
+                                        <b>Closest matching address:</b>
+                                        <div id="address"></div>
+                                    <!--</div>-->
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+					
+					
+				</div>
+			</div>
+			
+        </section>
 		
 		
         <section id="home">	
