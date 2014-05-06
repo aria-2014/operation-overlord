@@ -15,9 +15,7 @@ body {
 
 html, body, section, container, .row, .col-md-9 { height: 100% }
 html { height: 100% }
-#map_canvas {
-	height: 100%;
-}
+
 
 #map_canvas img {
 	max-width: none !important;
@@ -25,20 +23,17 @@ html { height: 100% }
 }
 
      .controls {
-        margin-top: 16px;
-        border: 1px solid transparent;
-        border-radius: 2px 0 0 2px;
+        margin-top: 8px;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         height: 32px;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
 
       #pac-input {
         background-color: #fff;
-        padding: 0 11px 0 13px;
-        width: 100px;
+     /*   padding: 0 11px 0 13px; */
+        width: 200px;
+        margin-left:8px;
         font-family: Roboto;
         font-size: 15px;
         font-weight: 300;
@@ -46,10 +41,8 @@ html { height: 100% }
       }
 
       #pac-input:focus {
-        border-color: #4d90fe;
-        margin-left: -1px;
-        padding-left: 14px;  /* Regular padding-left + 1. */
-        width: 100px;
+        border-color: #999;
+       /* width: 401px; gets messy on a small screen */
       }
 
       .pac-container {
@@ -58,8 +51,8 @@ html { height: 100% }
 
       #type-selector {
         color: #fff;
-        background-color: #4d90fe;
-        padding: 5px 11px 0px 11px;
+        background-color: yellow;
+        /*padding: 5px 11px 0px 11px;*/
       }
 
       #type-selector label {
@@ -67,4 +60,3 @@ html { height: 100% }
         font-size: 13px;
         font-weight: 300;
       }
-	  

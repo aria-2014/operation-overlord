@@ -137,7 +137,7 @@ var forecastData =
 		// chain to the spyOn() constructor, the andCallFake() method, passing in an anonymous function that calls the Ajax success() event handler
 	
 		spyOn($, "ajax").and.callFake(function(e) {
-			e.success( { data:"entry" } );
+			e.success( { data:forecastData } );
 		});
  
  		var reqSuccess = jasmine.createSpy("reqSuccess");
@@ -150,7 +150,7 @@ var forecastData =
 		
 		//expect(reqSuccess).toHaveBeenCalled();
 		//expect(resData.data.latitude).toEqual(forecastData.latitude);
-		expect(reqSuccess).toHaveBeenCalledWith( { data:"entry" } );
+		expect(reqSuccess).toHaveBeenCalledWith( { data:forecastData } );
 
 	});
 	

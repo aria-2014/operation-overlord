@@ -57,6 +57,7 @@
 				alert( msg );
 			}
 		}
+		
 		function mlAlertMsg2(msg){
 			var mlAlertMsgShow2;
 			mlAlertMsgShow2 = false;
@@ -74,7 +75,23 @@ function getForecast() {
 	reqURL = reqURL + curLat + "," + curLng;
 	//reqURL = reqURL + "53.426898,-6.257120999999984";
 	reqURL = reqURL + "?callback=?&units=si&exclude=minutely,hourly,alerts,flags";
-    $.ajax({
+	//https://api.forecast.io/forecast/89279fee14f6fcc1b7d86ca3cf7908cb/53.426898,-6.257120999999984?callback=?&units=si&exclude=minutely,hourly,alerts,flags
+	
+	ARIACallOuts.ForecastCallOut(
+        reqURL,//exclude=[blocks]
+        "callback",
+        "jsonp",
+        {
+            'Access-Control-Allow-Origin': '*',
+            "Content-type": "application/json"
+        },
+        getForecastSuccess,
+        getForecastError,
+        getForecastComp
+    );
+	
+	/*
+	$.ajax({
         url: reqURL,//exclude=[blocks]
         jsonp: "callback",
         dataType: "jsonp",
@@ -115,9 +132,46 @@ function getForecast() {
             forecastJSON();
             drawGraph();
         }
-    });
+	});
+	*/
+	
 }
 
+function getForecastSuccess(data) {
+            //forecastData = data.daily.data; //forecastData = data.daily;
+            $.each(data.daily, function (index, value) {
+                if (index == "icon") {
+                    //console.log(value);
+                }
+                if (index == "data") {
+                    $.each(value, function (index, value1) {
+                        gobalforecastData.push({
+                            time: value1.time,
+                            summary: value1.summary,
+                            precipProbability: value1.precipProbability,
+                            temperatureMin: value1.temperatureMin,
+                            temperatureMax: value1.temperatureMax,
+                            cloudCover: value1.cloudCover
+                        });
+                        //forecastData.push(value);
+                        //console.log(value1.summary);
+                    });
+                }
+                if (index == "summary") {
+                    //console.log(value);
+                }
+
+            });
+}
+
+function getForecastError(data) {
+	alert("error");
+}
+
+function getForecastComp() {
+	forecastJSON();
+	drawGraph();
+}
 
 function forecastJSON() {
     //jsonfcstdata.title = { text: "Weather Forecast", fontFamily: "Times New Roman", fontweight: "bold", fontStyle: "italic", padding: 5, cornerRadius: 4, borderThickness: 2 };
@@ -129,7 +183,6 @@ function forecastJSON() {
         jsonfcstdata.data[1].dataPoints[index] = ({ click: function () { alert(value.summary + "\n\r Max Temp " + value.temperatureMax + "\n\r Min Temp " + value.temperatureMin); }, x: new Date(value.time * 1000), y: (value.precipProbability) * 100 });
     });
 }
-
 
 function drawGraph() {
     var chart = new CanvasJS.Chart("chartContainer", jsonfcstdata);
@@ -181,7 +234,6 @@ function resizeChart() {
 			$('#chartContainer').css('height', (varHeight));
 }
 
-
 var jsonfcstdata = {
     data: [
 		{ type: "line", showInLegend: true, legendText: "Cloud cover", indexLabelFontSize: 22, dataPoints: [] },
@@ -191,8 +243,6 @@ var jsonfcstdata = {
 	height: 0
 };
 
-	
-		
 	   
 // Flickr
 	   
@@ -276,7 +326,11 @@ var jsonfcstdata = {
             }
 			
 			//alert (req);
+			//console.log(req);
+			// sample call
+			//http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text=cats&lat=53.377699&lon=-6.236904999999979&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?
 			
+			/*
             $.getJSON(req,
                 function(data)
                 {trace(data);
@@ -288,6 +342,20 @@ var jsonfcstdata = {
                     });    
                 }
             );
+			*/
+			
+			ARIACallOuts.FlickrCallOut(req,
+                function(data)
+                {trace(data);
+                    $.each(data.photos.photo, function(i,item){
+                        infowindowcontent = '<strong>'+item.title+'</strong><br>';
+                        infowindowcontent += '<a href="'+item.url_m+'" target="_top">';
+                        infowindowcontent += '<img src="'+item.url_t+'"></a>';
+                        createFlickrMarker(i,item.latitude,item.longitude,infowindowcontent,item.url_sq); 
+                    });    
+                }
+            );
+			
         }
 
                        
@@ -299,6 +367,7 @@ var jsonfcstdata = {
             getFlickr(flickrquery, flickrquerybyuserid);
         }
 
+		
 // Twitter
 
         function twitterinitialise(twitterquery)
@@ -669,9 +738,9 @@ var jsonfcstdata = {
 				});
 			}
 
-			setupClickListener('changetype-all', []);
-			setupClickListener('changetype-establishment', ['establishment']);
-			setupClickListener('changetype-geocode', ['geocode']);
+			//setupClickListener('changetype-all', []);
+			//setupClickListener('changetype-establishment', ['establishment']);
+			//setupClickListener('changetype-geocode', ['geocode']);
 
 			// Auto complete code end 
 
