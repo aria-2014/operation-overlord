@@ -605,8 +605,8 @@ var jsonfcstdata = {
 			autoInfoWin = new google.maps.InfoWindow();
 			autoInput = (document.getElementById('pac-input'));
 			autoTypes = document.getElementById('type-selector');
-			flickrmap.controls[google.maps.ControlPosition.TOP_LEFT].push(autoInput);
-			flickrmap.controls[google.maps.ControlPosition.TOP_LEFT].push(autoTypes);
+			//flickrmap.controls[google.maps.ControlPosition.TOP_LEFT].push(autoInput);
+			//flickrmap.controls[google.maps.ControlPosition.TOP_LEFT].push(autoTypes);
 			autoComplete = new google.maps.places.Autocomplete(autoInput);
 			autoComplete.bindTo('bounds', flickrmap);
 			

@@ -127,6 +127,7 @@
     <Content Include="Content\jquery-ui-1.8.23.css" />
     <Content Include="Content\styles_bs.css" />
     <Content Include="Content\vendor\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\vendor\slidebars.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="GoogleMapBanchLocator.html" />
@@ -150,6 +151,7 @@
     <Content Include="Scripts\vendor\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\vendor\canvasjs.js" />
     <Content Include="Scripts\vendor\respond.min.js" />
+    <Content Include="Scripts\vendor\slidebars.min.js" />
     <Content Include="Scripts\webgl-utils.js" />
     <Content Include="Scripts\_skel_config.js" />
     <Content Include="Web.config" />
@@ -171,12 +173,12 @@
     <Content Include="Views\ARIA001\IndexOriginal.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\ARIA001\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\ARIA001\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
