@@ -314,14 +314,21 @@ var jsonfcstdata = {
             
             //setup request based on search and searchbyuserid function parameters
             if (search && searchbyuserid) {
-                var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text='+search+'&id=' + searchbyuserid +'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+              var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text='+search+'&id=' + searchbyuserid +'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+                //Brian's Key: 
+                //var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=455597fb898806bea23a02c1fce9498d&text=' + search + '&id=' + searchbyuserid + '&lat=' + curLat + '&lon=' + curLng + '&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
             }
+
             else {
                 if (search) {
                     var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&text='+search+'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+                    //Brian's Key: 
+                    //var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=455597fb898806bea23a02c1fce9498d&text=' + search + '&lat=' + curLat + '&lon=' + curLng + '&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
                 }
                 else {
-                    var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&id=' + searchbyuserid +'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+                var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=c7da18f4cdc5e79a5f073858e7871a53&id=' + searchbyuserid +'&lat='+curLat+'&lon='+curLng+'&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
+                    //Brian's Key: 
+                    //var req = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=455597fb898806bea23a02c1fce9498d&id=' + searchbyuserid + '&lat=' + curLat + '&lon=' + curLng + '&extras=geo,url_t,url_m,url_sq&radius=20&radius_units=mi&per_page=20&jsoncallback=?';
                 }
             }
 			
