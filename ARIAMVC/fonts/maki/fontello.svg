@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="bicycle" unicode="&#xe800;" d="m625 700l-25-50 100-37 0-113-350 0 0 50 50 0 0 25c0 12-13 25-25 25l-125 0c-25 0-25-25-25-25l0-25 75 0 0-50-53-106c-15 3-31 6-47 6-110 0-200-89-200-200s90-200 200-200 200 90 200 200c0 0 50 0 75 0s25 25 25 25c5 74 43 131 92 169 34 26 71 42 108 50l0-52c-86-22-150-99-150-192 0-110 90-200 200-200s200 90 200 200c0 91-62 167-145 191l-55 109 0 125c0 15-12 31-25 36z m-275-250l225 0c-50-25-125-150-125-200l-58 0c-12 49-41 90-83 117z m-150-125c69 0 125-56 125-125s-56-125-125-125-125 56-125 125 56 125 125 125z m550 0c69 0 125-56 125-125s-56-125-125-125-125 56-125 125 56 125 125 125z" horiz-adv-x="950" />
+</font>
+</defs>
+</svg>

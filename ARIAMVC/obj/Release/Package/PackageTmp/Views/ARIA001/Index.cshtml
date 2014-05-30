@@ -4,51 +4,50 @@
 
     <title>NCIRL</title>
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--Stylesheets-->
     <link href="../../Content/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/styles_bs.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/customBootstrap.css" rel="stylesheet" />
+    <link href="~/Content/popOutMenu.css" rel="stylesheet" />
 
     <!--JQuery-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   <!-- <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />-->
-
+    <!-- <link href="../../Content/jquery-ui-1.8.23.css" rel="stylesheet" type="text/css" />-->
+    
     <!--Fonts / Icons -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Rancho' rel='stylesheet' type='text/css'>
-
+    <link href="~/fonts/maki/fontello.css" rel="stylesheet" />
 </head>
 <body>
 
-    <div class="navbar navbar-static-top navbar-custom">
+    <div class="navbar navbar-fixed-top navbar-custom" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <input id="pac-input" class="controls" type="text" placeholder="Location" />
+
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!--have to fix below section
-                <span id="type-selector" class="controls">
-                    <input type="radio" name="type" id="changetype-all" checked="checked" />
-                    <label for="changetype-all">All</label>
-                    <input type="radio" name="type" id="changetype-establishment" />
-                    <label for="changetype-establishment">Est</label>
-                    <input type="radio" name="type" id="changetype-geocode" />
-                    <label for="changetype-geocode">Geo</label>
-                </span>-->
-
-                <a class="navbar-brand" href="#">MyTrip.ie</a>
+              
+                
+                <input id="pac-input" class="navbar-brand form-control" type="text" placeholder="Location" />
+                <button type="button" class="btn btn-default" id="btnLayers" data-toggle="collapse" data-target="#mapCollapsible" data-parent="#mapAccordion"><i class="fa fa-info-circle"></i></button>
+               
             </div>
             <nav class="history">
                 <div class="collapse navbar-collapse navHeaderCollapse">
                     <ul class="nav navbar-nav navbar-right">
+
+                        <li> </li>
                         <li class="active"><a href="#home">Home</a></li>
+                        <!-- <a class="logo" href="#"> MyTrip.ie</a>-->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social Media<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -83,69 +82,93 @@
 
 
     <section id="flickr">
+        <div id="leftColumn">
+
+        </div>
 
         <div class="container">
-            <div class="row">
+            <div class="row" id="mapSection">
                 <div class="col-md-12">
-                    <div class="input-group-btn">
+                    <!--  <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Standard Layers <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" name="fusTbllayer" id="fusTbllayer">Top Ten</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#" name="trafficlayer" id="trafficlayer">Traffic</a></li>
-                            <li><a href="#" name="transitlayer" id="transitlayer">Transit</a></li>
-                            <li><a href="#" name="weatherlayer" id="weatherlayer">Weather</a></li>
-                            <li><a href="#" name="bicyclelayer" id="bicyclelayer">Bicycle</a></li>
-                            <li><a href="#" name="panoramiolayer" id="panoramiolayer">Panoramio</a></li>
+
                         </ul>
-                    </div>
+                    </div>-->
                     <!-- Accordion for criterion -->
                     <div class="accordion" id="mapAccordion">
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#mapCollapsible" data-parent="#mapAccordion">Mapping Information</button>
+                        <!--  <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#mapCollapsible" data-parent="#mapAccordion">Mapping Information</button>-->
 
                         <div id="mapCollapsible" class="collapse">
 
 
-
                             <div class="row">
+                                <span id="type-selector" class="controls">
+                                    <input type="radio" name="type" id="changetype-all" checked="checked" />
+                                    <label for="changetype-all">All</label>
+                                    <input type="radio" name="type" id="changetype-establishment" />
+                                    <label for="changetype-establishment">Est</label>
+                                    <input type="radio" name="type" id="changetype-geocode" />
+                                    <label for="changetype-geocode">Geo</label>
+                                </span>
+                            </div>
 
-                                <form role="form" class="form-inline">
-                                    <div id="col1" class="col-xs-12 col-sm-3  col-lg-3 ">
-                                        <div class="form-group">
-                                            <input id="sourcequery" name="sourcequery" type="text" class="form-control" placeholder="Flickr / Twitter">
-                                        </div>
-                                    </div><!--.col-->
+                                <div class="row">
+                                    <ul id="layerList">
+                                        <li><i class="fa fa-university"></i>  <input type="checkbox" name="fusTbllayer" id="fusTbllayer"></li>
+                                        <li><i class="fa fa-car"></i>  <input type="checkbox" name="trafficlayer" id="trafficlayer"></li>
+                                        <li>Transit  <input type="checkbox" name="transitlayer" id="transitlayer"></li>
+                                        <li><i class="fa fa-sun-o"></i>  <input type="checkbox" name="weatherlayer" id="weatherlayer"></li>
+                                        <li>Bicycle  <input type="checkbox" name="bicyclelayer" id="bicyclelayer"></li>
+                                        <li><i class="fa fa-file-photo-o">  <input type="checkbox" name="panoramiolayer" id="panoramiolayer"></i></li>
+                                    </ul>
 
-                                    <div id="col2" class="col-xs-12 col-sm-3  col-lg-3">
-                                        <div class="form-group">
-                                            <input id="squbyuserid" name="squbyuserid" type="text" class="form-control" placeholder="Flickr User ID">
-                                        </div>
-                                    </div><!--.col-->
-                                </form>
-                                <div class="cold-md-6">
-                                    <div id="col3" class="col-xs-12 col-sm-0 col-lg-3">
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label id="toggleFlickr" class="btn btn-default active">
-                                                <input type="radio" name="inputSearchType" value="0" checked="checked" />
-                                                Flickr
-                                            </label>
-                                            <label id="toggleTwitter" class="btn btn-default">
-                                                <input type="radio" name="inputSearchType" value="1" />
-                                                Twitter
-                                            </label>
-                                        </div><!--.col-xs .col--->
-                                    </div><!--.col-md-->
 
-                                    <div id="col4" class="col-xs-12 col-sm-0 col-lg-3">
-                                        <button id="sourcesearch" class="btn btn-default" type="button">Go!</button>
-                                        <button class="btn btn-primary" id="togglesource">Toggle Layers</button>
-                                    </div><!--.col-->
                                 </div>
 
+
+                                <div class="row" id="layers">
+
+                                    <form role="form" class="form-inline">
+                                        <div id="col1" class="col-xs-12 col-sm-3  col-lg-3 ">
+                                            <div class="form-group">
+                                                <input id="sourcequery" name="sourcequery" type="text" class="form-control" placeholder="Flickr / Twitter">
+                                            </div>
+                                        </div><!--.col-->
+
+                                        <div id="col2" class="col-xs-12 col-sm-3  col-lg-3">
+                                            <div class="form-group">
+                                                <input id="squbyuserid" name="squbyuserid" type="text" class="form-control" placeholder="Flickr User ID">
+                                            </div>
+                                        </div><!--.col-->
+                                    </form>
+                                    <div class="cold-md-6">
+                                        <div id="col3" class="col-xs-12 col-sm-0 col-lg-3">
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label id="toggleFlickr" class="btn btn-default active">
+                                                    <input type="radio" name="inputSearchType" value="0" checked="checked" />
+                                                    Flickr
+                                                </label>
+                                                <label id="toggleTwitter" class="btn btn-default">
+                                                    <input type="radio" name="inputSearchType" value="1" />
+                                                    Twitter
+                                                </label>
+                                            </div><!--.col-xs .col--->
+                                        </div><!--.col-md-->
+
+                                        <div id="col4" class="col-xs-12 col-sm-0 col-lg-3">
+                                            <button id="sourcesearch" class="btn btn-default" type="button">Go!</button>
+                                            <button class="btn" id="togglesource">Toggle Layers</button>
+                                        </div><!--.col-->
+                                    </div>
+
+                                </div>
+
+
+
                             </div>
-                        </div>
-                    </div><!--.col-->
-                </div><!--.row-->
+                    </div><!--.accordion-->
+                </div><!--.col-->
             </div><!--.row-->
         </div><!--.container-->
         <!-- This is used with the Panoramio layer ... lists photos viewed on Google map ... link redirects to another site
@@ -153,31 +176,57 @@
             <li><strong>Photos clicked</strong></li>
         </ul>
         -->
+        <!--
+        <div id="containerPopOutMenu">
+            <div id="demo_box_2">
+                <div class="pop_ctrl"><i class="fa fa-bars"></i></div>
+                <ul id="demo_ul_2">
+                    <li class="demo_li"><input id="sourcequery" name="sourcequery" type="text" class="form-control" placeholder="Flickr / Twitter"></li>
+                    <li class="demo_li"><input id="squbyuserid" name="squbyuserid" type="text" class="form-control" placeholder="Flickr User ID"></li>
+                    <li class="demo_li">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label id="toggleFlickr" class="btn btn-default active">
+                                <input type="radio" name="inputSearchType" value="0" checked="checked" />
+                                Flickr
+                            </label>
+                            <label id="toggleTwitter" class="btn btn-default">
+                                <input type="radio" name="inputSearchType" value="1" />
+                                Twitter
+                            </label>
+                        </div><!--.col-xs .col
+                    </li>
+                    <li class="demo_li">
+                            <button id="sourcesearch" class="btn btn-default" type="button">Go!</button>
+                            <button class="btn btn-default" id="togglesource">Toggle Layers</button>
+                    </li>
+                </ul>
+            </div>
+        </div>-->
         <!-- This does not work when placed above for some reason -->
         <div id="map_canvas" style="width: 100%; height: 100%">
         </div>
 
-
         <div class="container">
-            <div class="row" id="chartRow">
-                <div class="col-md-6" id="chartRowSeg">
-                    <!-- Accordion for criterion -->
-                    <div class="container-fluid">
-                        <div class="accordion" id="chartAccordion">
-                            <button id="chtAccBtn" type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-3" data-parent="#chartAccordion">Weather Forecast</button>
-                            <div id="collapsible-3" class="collapse">
-                                <!-- <div class = "col-md-12">-->
-                                <div id="chartContainer" style="border:#666; width:auto; height:auto"></div>
-                                <!--</div>      -->
+            <div id="weatherChart">
+                <div class="row" id="chartRow">
+                    <div class="col-md-6" id="chartRowSeg">
+                        <!-- Accordion for criterion -->
+                        <div class="container-fluid">
+                            <div class="accordion" id="chartAccordion">
+                                <button id="chtAccBtn" type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-3" data-parent="#chartAccordion"><i class="forecast fa fa-sun-o"></i>  <i class="fa fa-bar-chart-o"></i></button>
+                                <div id="collapsible-3" class="collapse">
+                                    <!-- <div class = "col-md-12">-->
+                                    <div id="chartContainer" style="border:#666; width:auto; height:auto"></div>
+                                    <!--</div>      -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <!-- Accordion for criterion -->
-                    <div class="container-fluid">
+                    <div class="col-md-6">
+                        <!-- Accordion for criterion -->
+
                         <div class="accordion" id="flickrAccordion-2">
-                            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-2" data-parent="#flickrAccordion-2">Location Information</button>
+                            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsible-2" data-parent="#flickrAccordion-2"><i class="forecast fa fa-compass"></i></button>
                             <div id="collapsible-2" class="collapse">
                                 <!--<div class = "col-md-4">-->
                                 <b>Marker status:</b>
@@ -541,6 +590,17 @@
     <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA006.js"></script>
     <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIA007.js"></script>
     <script type="text/javascript" charset="utf-8" src="../../Scripts/ARIACallOuts.js"></script>
+
+    <script src="~/Scripts/vendor/jquery.popmenu.js"></script>
+
+
+    <script>
+        $(function () {
+            $('#demo_box_2').popmenu();
+            // $('#demo_box_2').popmenu({ 'background': '#D6D8D9', 'focusColor': '#EEF0F1', 'borderRadius': '0' });
+        })
+    </script>
+
 
 
 </body>

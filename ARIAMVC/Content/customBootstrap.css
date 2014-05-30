@@ -1,4 +1,5 @@
 ﻿body {
+padding-top: 60px; /*to clear the fixed navbar above*/
 }
 
 
@@ -8,11 +9,11 @@
 
 #sourcequery, #squbyuserid{width:185px;} /*Flickr / Twitter Search box*/
 
-#toggleFlickr, #toggleTwitter {width:92.5px;} /*Toggle Flickr /Twitter buttons */
+#toggleFlickr, #toggleTwitter {width:93px;} /*Toggle Flickr /Twitter buttons */
 
-#sourcesearch {width:50px;} /*Go! button*/
+#sourcesearch {width:72px;} /*Go! button*/
 
-#togglesource{width:132.5px;} /*Toggle Layers button*/
+#togglesource{width:110px;} /*Toggle Layers button*/
 
 /*#col1, #col2, #col3, #col4{*/
 .col-lg-3{
@@ -125,13 +126,57 @@
 .navbar-custom .navbar-link:hover {
   color: #c0c0c0;
 }
-
+.fa{color: #3399FF;}
 .fa.fa-bar-chart-o{color: #3399FF;}
-.fa.fa-sun-o{color: #FF9900;}
+.forecast.fa.fa-sun-o{color: #FF9900;}
 
-.navbar-brand{
+.logo{
 font-family:'Rancho','Petit Formal Script','Pacifico', Helvetica, sans-serif; 
 font-size:2em;
 color: white;
 padding-top:10px;
 }
+
+
+#layerList{
+margin-top: 10px;
+}
+
+#layerList li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+
+}
+
+input[type=checkbox] {
+    color:blue;
+}
+
+input[type=checkbox]:checked{
+    color:blue;
+}
+
+#chartRow {
+    display: inline;
+}
+
+#btnLayers{
+    background-color: white;
+    color: #1288ff;
+    margin-top:4px;
+    margin-left:10px;
+    height: 40px;
+    padding: .5px 8px;
+}
+
+#navLeftElements{
+    display: inline;
+}
+
+ #col3, #col4{
+    margin-bottom:10px;
+}
+
+

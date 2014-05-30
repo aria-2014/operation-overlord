@@ -125,10 +125,16 @@
     <Content Include="Content\images\thisway.jpg" />
     <Content Include="Content\images\weather.jpg" />
     <Content Include="Content\jquery-ui-1.8.23.css" />
+    <Content Include="Content\popOutMenu.css" />
     <Content Include="Content\styles_bs.css" />
     <Content Include="Content\vendor\bootstrap\bootstrap.min.css" />
     <Content Include="Content\vendor\slidebars.min.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\maki\fontello.css" />
+    <Content Include="fonts\maki\fontello.svg" />
     <Content Include="Global.asax" />
     <Content Include="GoogleMapBanchLocator.html" />
     <Content Include="images\shop-icon.jpg" />
@@ -147,6 +153,7 @@
     <Content Include="Scripts\vendor\angular.js" />
     <Content Include="Scripts\vendor\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\vendor\canvasjs.js" />
+    <Content Include="Scripts\vendor\jquery.popmenu.js" />
     <Content Include="Scripts\vendor\respond.min.js" />
     <Content Include="Scripts\webgl-utils.js" />
     <Content Include="Web.config" />
@@ -176,7 +183,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\font-awesome\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome\font-awesome\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\maki\fontello.eot" />
+    <Content Include="fonts\maki\fontello.ttf" />
+    <Content Include="fonts\maki\fontello.woff" />
     <None Include="Properties\PublishProfiles\tourist.pubxml" />
+    <None Include="Properties\PublishProfiles\tourist2 %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\tourist2.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
